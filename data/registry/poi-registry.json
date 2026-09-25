@@ -195,7 +195,7 @@
       10.26
     ],
     "accuracy": "illustrative",
-    "zone": "C",
+    "zone": "B",
     "vrSceneIds": [
       "658a8e45571db028db04a726",
       "658a8e91571db028db04a727",
@@ -205,5 +205,31 @@
       "658a8ca1571db028db04a720"
     ],
     "summary": "Cụm scene Gò Giồng Cát, gồm điểm Giếng nước cổ xưa."
+  },
+  {
+    "id": "giong-xoai",
+    "name": "Giồng Xoài",
+    "category": "archaeology",
+    "coordinates": [
+      105.1454,
+      10.2373
+    ],
+    "accuracy": "literature-approximate",
+    "zone": "C",
+    "vrSceneIds": [],
+    "summary": "Khu C trong hồ sơ đề cử; mốc GIS hiện đặt xấp xỉ theo mô tả Giồng Xoài nằm khoảng 1 km về phía nam núi Ba Thê."
+  },
+  {
+    "id": "nen-chua",
+    "name": "Nền Chùa",
+    "category": "archaeology",
+    "coordinates": [
+      105.107447,
+      10.111573
+    ],
+    "accuracy": "reference",
+    "zone": "D",
+    "vrSceneIds": [],
+    "summary": "Khu D trong hồ sơ đề cử, một địa điểm vệ tinh quan trọng liên hệ với mạng thủy lộ cổ từ Óc Eo."
   }
 ]
