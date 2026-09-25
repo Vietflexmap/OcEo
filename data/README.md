@@ -1,12 +1,23 @@
 # Digital Twin data layer
 
-Các file trong thư mục này là khung dữ liệu cho Digital Twin Óc Eo – Ba Thê.
+Thư mục này là lớp dữ liệu tách rời UI để có thể thay dữ liệu nghiên cứu mà không sửa logic ứng dụng.
 
-- `registry/scene-registry.json`: toàn bộ scene VR trích từ tour hiện hữu.
-- `registry/poi-registry.json`: các điểm/cụm di tích nối GIS ↔ VR.
-- `registry/timeline-registry.json`: cấu hình timeline.
-- `gis/zones-abcd.geojson`: khung 4 khu A–B–C–D.
-- `gis/ancient-canals.geojson`: tuyến kênh cổ tái dựng minh họa.
-- `gis/reconstruction.geojson`: footprint phục vụ khối 3D.
+## Registry
 
-**Quan trọng:** các geometry có thuộc tính `status: illustrative` hoặc `reconstruction-illustrative` chỉ phục vụ UX và khung tích hợp. Khi có dữ liệu khảo sát / hồ sơ pháp lý, thay GeoJSON tương ứng mà không phải đổi UI.
+- `registry/scene-registry.json`: 53 scene VR lấy từ tour hiện hữu; gồm ID, nhóm, tiêu đề, ảnh, hotspot và neo GIS.
+- `registry/poi-registry.json`: cụm di sản/điểm tham chiếu để nối GIS ↔ VR.
+- `registry/timeline-registry.json`: ba trạng thái Óc Eo cổ / khảo cổ / hiện trạng 2026.
+
+## GIS
+
+- `gis/zones-abcd.geojson`: A – Núi Ba Thê; B – Đô thị Óc Eo; C – Giồng Xoài; D – Nền Chùa.
+- `gis/ancient-canals.geojson`: khung kênh cổ và tuyến Lung Lớn – Nền Chùa.
+- `gis/reconstruction.geojson`: footprint cho fill-extrusion 3D.
+
+## Cảnh báo
+
+Tên bốn khu dựa trên tài liệu/hồ sơ công khai năm 2026, nhưng **polygon hiện tại không phải ranh giới hồ sơ đề cử**. Chúng mang thuộc tính `illustrative-extent`.
+
+Các tuyến có thuộc tính `reconstruction-illustrative` hoặc `schematic-from-literature` cũng chỉ dùng để trình diễn kiến trúc Digital Twin cho đến khi có vector khảo cổ chính thức.
+
+Nền Chùa được neo bằng tọa độ tham chiếu công khai; Giồng Xoài hiện neo xấp xỉ theo mô tả tư liệu rằng địa điểm nằm khoảng 1 km về phía nam núi Ba Thê.
