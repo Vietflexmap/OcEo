@@ -5,8 +5,9 @@
       "type": "Feature",
       "properties": {
         "zone": "A",
-        "name": "Khu A – Ba Thê / Linh Sơn",
-        "status": "illustrative"
+        "name": "Khu A – Núi Ba Thê",
+        "status": "illustrative-extent",
+        "official_component": "Núi Ba Thê"
       },
       "geometry": {
         "type": "Polygon",
@@ -52,8 +53,9 @@
       "type": "Feature",
       "properties": {
         "zone": "B",
-        "name": "Khu B – Óc Eo trung tâm",
-        "status": "illustrative"
+        "name": "Khu B – Đô thị Óc Eo",
+        "status": "illustrative-extent",
+        "official_component": "Khu đô thị Óc Eo"
       },
       "geometry": {
         "type": "Polygon",
@@ -95,36 +97,37 @@
       "type": "Feature",
       "properties": {
         "zone": "C",
-        "name": "Khu C – Đồng bằng phía đông",
-        "status": "illustrative"
+        "name": "Khu C – Giồng Xoài",
+        "status": "illustrative-extent",
+        "official_component": "Giồng Xoài"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              105.1646,
-              10.265
+              105.1418,
+              10.24
             ],
             [
-              105.1838,
-              10.2605
+              105.149,
+              10.24
             ],
             [
-              105.1844,
-              10.2465
+              105.1502,
+              10.2355
             ],
             [
-              105.175,
-              10.2362
+              105.146,
+              10.2328
             ],
             [
-              105.1638,
-              10.242
+              105.1408,
+              10.2352
             ],
             [
-              105.1646,
-              10.265
+              105.1418,
+              10.24
             ]
           ]
         ]
@@ -134,40 +137,37 @@
       "type": "Feature",
       "properties": {
         "zone": "D",
-        "name": "Khu D – Hành lang phía nam",
-        "status": "illustrative"
+        "name": "Khu D – Nền Chùa",
+        "status": "illustrative-extent",
+        "official_component": "Nền Chùa"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              105.145,
-              10.244
+              105.1039,
+              10.1148
             ],
             [
-              105.158,
-              10.2415
+              105.111,
+              10.1148
             ],
             [
-              105.174,
-              10.2352
+              105.112,
+              10.1093
             ],
             [
-              105.1703,
-              10.2268
+              105.1066,
+              10.1078
             ],
             [
-              105.1511,
-              10.2285
+              105.1029,
+              10.1105
             ],
             [
-              105.1415,
-              10.2368
-            ],
-            [
-              105.145,
-              10.244
+              105.1039,
+              10.1148
             ]
           ]
         ]
