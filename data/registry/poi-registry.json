@@ -1,0 +1,209 @@
+[
+  {
+    "id": "ba-the",
+    "name": "Núi Ba Thê",
+    "category": "landscape",
+    "coordinates": [
+      105.1454,
+      10.24628
+    ],
+    "accuracy": "reference",
+    "zone": "A",
+    "vrSceneIds": [
+      "660a51e94d7481494c14c3a4"
+    ],
+    "summary": "Mốc địa hình nổi bật của không gian Óc Eo – Ba Thê."
+  },
+  {
+    "id": "oc-eo-town",
+    "name": "Thị trấn Óc Eo",
+    "category": "settlement",
+    "coordinates": [
+      105.1535,
+      10.2558
+    ],
+    "accuracy": "reference",
+    "zone": "B",
+    "vrSceneIds": [
+      "65865229571db028db04a59c"
+    ],
+    "summary": "Không gian đô thị hiện hữu và điểm kết nối các cụm di tích."
+  },
+  {
+    "id": "linh-son-bac",
+    "name": "Linh Sơn Bắc",
+    "category": "archaeology",
+    "coordinates": [
+      105.1551,
+      10.2483
+    ],
+    "accuracy": "curated",
+    "zone": "A",
+    "vrSceneIds": [
+      "660a6a6a4d7481494c14c3e1",
+      "660a6a9f4d7481494c14c3e3",
+      "660a6ac84d7481494c14c3e6",
+      "660a6ae14d7481494c14c3e9"
+    ],
+    "summary": "Cụm scene trên cao và tiếp cận khu Linh Sơn Bắc."
+  },
+  {
+    "id": "go-sau-thuan",
+    "name": "Gò Sáu Thuận",
+    "category": "archaeology",
+    "coordinates": [
+      105.151,
+      10.2442
+    ],
+    "accuracy": "illustrative",
+    "zone": "A",
+    "vrSceneIds": [
+      "660a69b14d7481494c14c3d8",
+      "660a69f04d7481494c14c3dc",
+      "660a6a184d7481494c14c3de"
+    ],
+    "summary": "Cụm khảo cổ Gò Sáu Thuận và Gò Cây Me."
+  },
+  {
+    "id": "museum",
+    "name": "Nhà trưng bày văn hóa Óc Eo",
+    "category": "museum",
+    "coordinates": [
+      105.1539,
+      10.2549
+    ],
+    "accuracy": "illustrative",
+    "zone": "B",
+    "vrSceneIds": [
+      "65ae1b5de9120f49f7ddbfe0",
+      "65ae1c24e9120f49f7ddbfe3",
+      "65ae1cb9e9120f49f7ddbfe8",
+      "65ae1d1fe9120f49f7ddbfeb",
+      "65ae1d55e9120f49f7ddbfee",
+      "65ae1dbfe9120f49f7ddbff2",
+      "65ae1ee3e9120f49f7ddbff9",
+      "65ae1f4ae9120f49f7ddbffc",
+      "65ae1fa4e9120f49f7ddbfff",
+      "65ae207be9120f49f7ddc006",
+      "65865094571db028db04a598",
+      "65865fdf571db028db04a5a1"
+    ],
+    "summary": "Điểm diễn giải di sản với nhiều scene VR bên trong và xung quanh."
+  },
+  {
+    "id": "thach-dai-dao",
+    "name": "Thạch Đại Đao",
+    "category": "archaeology",
+    "coordinates": [
+      105.1527,
+      10.2542
+    ],
+    "accuracy": "illustrative",
+    "zone": "B",
+    "vrSceneIds": [
+      "658937d8571db028db04a673",
+      "65893870571db028db04a677"
+    ],
+    "summary": "Cụm scene thực địa Thạch Đại Đao."
+  },
+  {
+    "id": "linh-son-co-tu",
+    "name": "Linh Sơn Cổ Tự",
+    "category": "heritage",
+    "coordinates": [
+      105.15498,
+      10.24658
+    ],
+    "accuracy": "reference",
+    "zone": "A",
+    "vrSceneIds": [
+      "65866680571db028db04a5a8",
+      "658666e5571db028db04a5ab",
+      "6587d213571db028db04a5fd",
+      "6587d2b7571db028db04a5ff",
+      "6587d8bf571db028db04a605",
+      "6587dac4571db028db04a609",
+      "6587dc4f571db028db04a60f",
+      "6587eb67571db028db04a618",
+      "6587de45571db028db04a616"
+    ],
+    "summary": "Cụm di tích – tín ngưỡng dưới chân Ba Thê."
+  },
+  {
+    "id": "linh-son-nam",
+    "name": "Linh Sơn Nam",
+    "category": "archaeology",
+    "coordinates": [
+      105.1538,
+      10.2446
+    ],
+    "accuracy": "illustrative",
+    "zone": "A",
+    "vrSceneIds": [
+      "65af278ce9120f49f7ddc065",
+      "65af27afe9120f49f7ddc067",
+      "6587f9a5571db028db04a631",
+      "6587f9c2571db028db04a633"
+    ],
+    "summary": "Cụm scene VR Linh Sơn Nam."
+  },
+  {
+    "id": "go-ut-tranh",
+    "name": "Gò Út Trạnh",
+    "category": "archaeology",
+    "coordinates": [
+      105.1492,
+      10.2609
+    ],
+    "accuracy": "illustrative",
+    "zone": "B",
+    "vrSceneIds": [
+      "6587f5c1571db028db04a627",
+      "6587f5d8571db028db04a629",
+      "6587fed8571db028db04a63c",
+      "6587ff86571db028db04a63f",
+      "6587ff99571db028db04a640"
+    ],
+    "summary": "Cụm khảo cổ với chuỗi scene tiếp cận và tham quan."
+  },
+  {
+    "id": "go-cay-thi",
+    "name": "Gò Cây Thị A – B",
+    "category": "archaeology",
+    "coordinates": [
+      105.1519,
+      10.2522
+    ],
+    "accuracy": "illustrative",
+    "zone": "B",
+    "vrSceneIds": [
+      "65af2865e9120f49f7ddc069",
+      "65af2953e9120f49f7ddc06b",
+      "65af2971e9120f49f7ddc06d",
+      "660a64324d7481494c14c3c2",
+      "660a685c4d7481494c14c3d4",
+      "658814be571db028db04a64a"
+    ],
+    "summary": "Cụm Gò Cây Thị A và B, có scene mặt đất và cảnh trên cao."
+  },
+  {
+    "id": "go-giong-cat",
+    "name": "Gò Giồng Cát",
+    "category": "archaeology",
+    "coordinates": [
+      105.1584,
+      10.26
+    ],
+    "accuracy": "illustrative",
+    "zone": "C",
+    "vrSceneIds": [
+      "658a8e45571db028db04a726",
+      "658a8e91571db028db04a727",
+      "658a8eae571db028db04a728",
+      "658a8d11571db028db04a722",
+      "658a8ca1571db028db04a71f",
+      "658a8ca1571db028db04a720"
+    ],
+    "summary": "Cụm scene Gò Giồng Cát, gồm điểm Giếng nước cổ xưa."
+  }
+]
