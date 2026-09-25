@@ -1,5 +1,8 @@
 /* Óc Eo – Ba Thê WebGIS
  * Static GitHub Pages build; no API key required.
+ * Reference center: UNESCO Tentative List #6572
+ * https://whc.unesco.org/en/tentativelists/6572/
+ * Basemap: OpenStreetMap; terrain DEM: MapLibre demo terrain tiles.
  * Ranh giới trong DEMO là hình học minh họa, không phải hồ sơ pháp lý.
  */
 
