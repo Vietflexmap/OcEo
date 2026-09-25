@@ -1,0 +1,28 @@
+{
+  "min": 0,
+  "max": 100,
+  "default": 100,
+  "keyframes": [
+    {
+      "value": 0,
+      "label": "Óc Eo cổ",
+      "year": "TK I–VII",
+      "mode": "ancient",
+      "description": "Tái dựng diễn giải: ưu tiên kênh cổ và khối 3D giả lập; không phải phục dựng khảo cổ chính thức."
+    },
+    {
+      "value": 50,
+      "label": "Khảo cổ",
+      "year": "TK XX–XXI",
+      "mode": "archaeology",
+      "description": "Ưu tiên vùng nghiên cứu, ranh giới và các cụm di tích."
+    },
+    {
+      "value": 100,
+      "label": "Hiện trạng",
+      "year": "2026",
+      "mode": "current",
+      "description": "Ảnh vệ tinh, địa hình thực và các điểm VR hiện trạng."
+    }
+  ]
+}
