@@ -1,0 +1,1488 @@
+[
+  {
+    "id": "660a51e94d7481494c14c3a4",
+    "group": "Cảnh trên cao",
+    "title": "Toàn cảnh núi Ba Thê",
+    "coordinates": [
+      105.1454,
+      10.24628
+    ],
+    "anchorAccuracy": "reference-or-curated",
+    "viewType": "aerial",
+    "yaw": -3,
+    "pitch": 12,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_EqlTX4aQdfEUvJ4sd8LL.webp",
+    "hotspotTargets": [
+      {
+        "target": "65865229571db028db04a59c",
+        "title": "Toàn cảnh Thị Trấn Óc Eo"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65865229571db028db04a59c",
+    "group": "Cảnh trên cao",
+    "title": "Toàn cảnh Thị Trấn Óc Eo",
+    "coordinates": [
+      105.1535,
+      10.2558
+    ],
+    "anchorAccuracy": "reference-or-curated",
+    "viewType": "aerial",
+    "yaw": -12,
+    "pitch": 20,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_ClXzxlPShmsIkXlqaU1e.webp",
+    "hotspotTargets": [
+      {
+        "target": "65865094571db028db04a598",
+        "title": "Nhà trưng bày Văn hóa Óc Eo"
+      },
+      {
+        "target": "65866680571db028db04a5a8",
+        "title": "Linh Sơn Cổ Tự"
+      },
+      {
+        "target": "65af2971e9120f49f7ddc06d",
+        "title": "Gò Cây Thị A - B"
+      },
+      {
+        "target": "658937d8571db028db04a673",
+        "title": "Thạch Đại Đao"
+      },
+      {
+        "target": "6587f5c1571db028db04a627",
+        "title": "Gò Út Trạnh"
+      },
+      {
+        "target": "658a8e45571db028db04a726",
+        "title": "Gò Giồng Cát"
+      },
+      {
+        "target": "65af278ce9120f49f7ddc065",
+        "title": "Linh Sơn Nam"
+      },
+      {
+        "target": "660a6a6a4d7481494c14c3e1",
+        "title": "Linh Sơn Bắc"
+      },
+      {
+        "target": "660a6a184d7481494c14c3de",
+        "title": "Gò Sáu Thuận"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "660a6a6a4d7481494c14c3e1",
+    "group": "Cảnh trên cao",
+    "title": "Linh Sơn Bắc",
+    "coordinates": [
+      105.1551,
+      10.2483
+    ],
+    "anchorAccuracy": "reference-or-curated",
+    "viewType": "ground",
+    "yaw": 7,
+    "pitch": 31,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_bGqZAX18JO2TtCcNc0E4.webp",
+    "hotspotTargets": [
+      {
+        "target": "660a6ac84d7481494c14c3e6",
+        "title": "Tham quan"
+      },
+      {
+        "target": "65866680571db028db04a5a8",
+        "title": "Lối ra Linh Sơn Cổ Tự"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "660a6a9f4d7481494c14c3e3",
+    "group": "Cảnh trên cao",
+    "title": "Linh Sơn Bắc",
+    "coordinates": [
+      105.1551,
+      10.2483
+    ],
+    "anchorAccuracy": "reference-or-curated",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_31qXEvTscWYdJem2VTb7.webp",
+    "hotspotTargets": [
+      {
+        "target": "660a6ac84d7481494c14c3e6",
+        "title": "Tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "660a6ac84d7481494c14c3e6",
+    "group": "Cảnh trên cao",
+    "title": "Linh Sơn Bắc",
+    "coordinates": [
+      105.1551,
+      10.2483
+    ],
+    "anchorAccuracy": "reference-or-curated",
+    "viewType": "ground",
+    "yaw": 101,
+    "pitch": 21,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_iIVFy89fqIm8RQwSVdY8.webp",
+    "hotspotTargets": [
+      {
+        "target": "660a6a9f4d7481494c14c3e3",
+        "title": "Tham quan"
+      },
+      {
+        "target": "660a6ae14d7481494c14c3e9",
+        "title": "Tham quan"
+      },
+      {
+        "target": "660a6a6a4d7481494c14c3e1",
+        "title": "Tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "660a6ae14d7481494c14c3e9",
+    "group": "Cảnh trên cao",
+    "title": "Linh Sơn Bắc",
+    "coordinates": [
+      105.1551,
+      10.2483
+    ],
+    "anchorAccuracy": "reference-or-curated",
+    "viewType": "ground",
+    "yaw": 22,
+    "pitch": 18,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_WfdcIvAkJniMqYHHSipr.webp",
+    "hotspotTargets": [
+      {
+        "target": "660a6ac84d7481494c14c3e6",
+        "title": "Tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "660a69b14d7481494c14c3d8",
+    "group": "Gò Sáu Thuận",
+    "title": "Gò Cây Me",
+    "coordinates": [
+      105.1503,
+      10.2436
+    ],
+    "anchorAccuracy": "reference-or-curated",
+    "viewType": "ground",
+    "yaw": 4,
+    "pitch": 38,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_8p4VOoZrCMWNOf7dd7GN.webp",
+    "hotspotTargets": [
+      {
+        "target": "660a6a184d7481494c14c3de",
+        "title": "Tham quan"
+      },
+      {
+        "target": "660a69f04d7481494c14c3dc",
+        "title": "Tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "660a69f04d7481494c14c3dc",
+    "group": "Gò Sáu Thuận",
+    "title": "Gò Sáu Thuận",
+    "coordinates": [
+      105.15111999999999,
+      10.2442
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_6ICYgs1WRUK98KAIQdj5.webp",
+    "hotspotTargets": [
+      {
+        "target": "660a6a184d7481494c14c3de",
+        "title": "Tham quan"
+      },
+      {
+        "target": "660a69b14d7481494c14c3d8",
+        "title": "Tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "660a6a184d7481494c14c3de",
+    "group": "Gò Sáu Thuận",
+    "title": "Gò Sáu Thuận",
+    "coordinates": [
+      105.15124,
+      10.2442
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": -3,
+    "pitch": 26,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_oVH54jwX0DgCVcqbhnBB.webp",
+    "hotspotTargets": [
+      {
+        "target": "660a69b14d7481494c14c3d8",
+        "title": "Gò Cây Me"
+      },
+      {
+        "target": "660a69f04d7481494c14c3dc",
+        "title": "Tham quan"
+      },
+      {
+        "target": "65866680571db028db04a5a8",
+        "title": "Toàn cảnh"
+      },
+      {
+        "target": "658666e5571db028db04a5ab",
+        "title": "Linh Sơn Cổ Tự"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65ae1b5de9120f49f7ddbfe0",
+    "group": "Nhà trưng bày văn hóa Óc Eo",
+    "title": "Nhà Trưng bày",
+    "coordinates": [
+      105.1539,
+      10.2549
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 4,
+    "pitch": 8,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_YPZvJQeifwIXyiOQSnV3.webp",
+    "hotspotTargets": [
+      {
+        "target": "65ae1c24e9120f49f7ddbfe3",
+        "title": "Lối tham quan"
+      },
+      {
+        "target": "65ae1d55e9120f49f7ddbfee",
+        "title": "Lối tham quan"
+      },
+      {
+        "target": "65ae1ee3e9120f49f7ddbff9",
+        "title": "Lối tham quan"
+      },
+      {
+        "target": "65ae207be9120f49f7ddc006",
+        "title": "Xem toàn cảnh"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65ae1c24e9120f49f7ddbfe3",
+    "group": "Nhà trưng bày văn hóa Óc Eo",
+    "title": "Nhà Trưng bày Bên phải",
+    "coordinates": [
+      105.15401999999999,
+      10.2549
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_L1gAzhudy8CrGy7QUeKT.webp",
+    "hotspotTargets": [
+      {
+        "target": "65ae1b5de9120f49f7ddbfe0",
+        "title": "Nhà Trưng bày"
+      },
+      {
+        "target": "65ae1cb9e9120f49f7ddbfe8",
+        "title": "Lối tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65ae1cb9e9120f49f7ddbfe8",
+    "group": "Nhà trưng bày văn hóa Óc Eo",
+    "title": "Nhà Trưng bày Bên phải",
+    "coordinates": [
+      105.15414,
+      10.2549
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_oeyeRg93KJbmZ8k4dKOz.webp",
+    "hotspotTargets": [
+      {
+        "target": "65ae1d1fe9120f49f7ddbfeb",
+        "title": "Lối tham quan"
+      },
+      {
+        "target": "65ae1d55e9120f49f7ddbfee",
+        "title": "Lối tham quan"
+      },
+      {
+        "target": "65ae1c24e9120f49f7ddbfe3",
+        "title": "Lối tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65ae1d1fe9120f49f7ddbfeb",
+    "group": "Nhà trưng bày văn hóa Óc Eo",
+    "title": "Nhà Trưng bày Bên phải",
+    "coordinates": [
+      105.15426,
+      10.2549
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_mYQAMcmHyVrxqUuDyCue.webp",
+    "hotspotTargets": [
+      {
+        "target": "65ae1cb9e9120f49f7ddbfe8",
+        "title": "Lối tham quan"
+      },
+      {
+        "target": "65ae1dbfe9120f49f7ddbff2",
+        "title": "Lối tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65ae1d55e9120f49f7ddbfee",
+    "group": "Nhà trưng bày văn hóa Óc Eo",
+    "title": "Nhà Trưng bày Ở giữa",
+    "coordinates": [
+      105.15437999999999,
+      10.2549
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_trlWLid69kpAhIKe4NcH.webp",
+    "hotspotTargets": [
+      {
+        "target": "65ae1dbfe9120f49f7ddbff2",
+        "title": "Lối tham quan"
+      },
+      {
+        "target": "65ae1cb9e9120f49f7ddbfe8",
+        "title": "Lối tham quan"
+      },
+      {
+        "target": "65ae1f4ae9120f49f7ddbffc",
+        "title": "Lối tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65ae1dbfe9120f49f7ddbff2",
+    "group": "Nhà trưng bày văn hóa Óc Eo",
+    "title": "Nhà Trưng bày Ở giữa",
+    "coordinates": [
+      105.1545,
+      10.2549
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_AQOszuV6Nl2EOkf0JSOV.webp",
+    "hotspotTargets": [
+      {
+        "target": "65ae1d1fe9120f49f7ddbfeb",
+        "title": "Lối tham quan"
+      },
+      {
+        "target": "65ae1fa4e9120f49f7ddbfff",
+        "title": "Lối tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65ae1ee3e9120f49f7ddbff9",
+    "group": "Nhà trưng bày văn hóa Óc Eo",
+    "title": "Nhà Trưng bày Bên trái",
+    "coordinates": [
+      105.15462,
+      10.2549
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_IUNNf2owlWjTvqalSXEe.webp",
+    "hotspotTargets": [
+      {
+        "target": "65ae1b5de9120f49f7ddbfe0",
+        "title": "Lối tham quan"
+      },
+      {
+        "target": "65ae1f4ae9120f49f7ddbffc",
+        "title": "Lối tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65ae1f4ae9120f49f7ddbffc",
+    "group": "Nhà trưng bày văn hóa Óc Eo",
+    "title": "Nhà Trưng bày Bên trái",
+    "coordinates": [
+      105.1539,
+      10.254999999999999
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_R1zaixXuBqsjHTJOTW51.webp",
+    "hotspotTargets": [
+      {
+        "target": "65ae1d55e9120f49f7ddbfee",
+        "title": "Lối tham quan"
+      },
+      {
+        "target": "65ae1fa4e9120f49f7ddbfff",
+        "title": "Lối tham quan"
+      },
+      {
+        "target": "65ae1ee3e9120f49f7ddbff9",
+        "title": "Lối tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65ae1fa4e9120f49f7ddbfff",
+    "group": "Nhà trưng bày văn hóa Óc Eo",
+    "title": "Nhà Trưng bày Bên trái",
+    "coordinates": [
+      105.15401999999999,
+      10.254999999999999
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_xA5UxzKe9rz60J7eeQWL.webp",
+    "hotspotTargets": [
+      {
+        "target": "65ae1f4ae9120f49f7ddbffc",
+        "title": "Lối tham quan"
+      },
+      {
+        "target": "65ae1dbfe9120f49f7ddbff2",
+        "title": "Lối tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65ae207be9120f49f7ddc006",
+    "group": "Nhà trưng bày văn hóa Óc Eo",
+    "title": "Toàn cảnh",
+    "coordinates": [
+      105.15414,
+      10.254999999999999
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "aerial",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_pSJzrj4x5ESblUZ07A0P.webp",
+    "hotspotTargets": [
+      {
+        "target": "65ae1b5de9120f49f7ddbfe0",
+        "title": "Về giữa"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65865094571db028db04a598",
+    "group": "Nhà trưng bày văn hóa Óc Eo",
+    "title": "Góc nhìn trên cao",
+    "coordinates": [
+      105.1539,
+      10.2549
+    ],
+    "anchorAccuracy": "reference-or-curated",
+    "viewType": "aerial",
+    "yaw": -2,
+    "pitch": 12,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_WPFh0yclPpcOJJVUtsXh.webp",
+    "hotspotTargets": [
+      {
+        "target": "65865fdf571db028db04a5a1",
+        "title": "Trước nhà trưng bày"
+      },
+      {
+        "target": "65865229571db028db04a59c",
+        "title": "Toàn cảnh Thị Trấn Óc Eo"
+      },
+      {
+        "target": "658937d8571db028db04a673",
+        "title": "Thạch Đại Đao"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65865fdf571db028db04a5a1",
+    "group": "Nhà trưng bày văn hóa Óc Eo",
+    "title": "Trước nhà trưng bày",
+    "coordinates": [
+      105.154,
+      10.2544
+    ],
+    "anchorAccuracy": "reference-or-curated",
+    "viewType": "ground",
+    "yaw": 3,
+    "pitch": 5,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_6eX8lfKJ2cCGtDswjpo6.webp",
+    "hotspotTargets": [
+      {
+        "target": "65865094571db028db04a598",
+        "title": "Toàn cảnh Nhà trưng bày"
+      },
+      {
+        "target": "65865229571db028db04a59c",
+        "title": "Toàn cảnh Thị Xã Óc Eo"
+      },
+      {
+        "target": "65ae1b5de9120f49f7ddbfe0",
+        "title": "Vào bên trong"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "658937d8571db028db04a673",
+    "group": "Thạch Đại Đao",
+    "title": "Toàn cảnh trên cao",
+    "coordinates": [
+      105.1527,
+      10.2542
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "aerial",
+    "yaw": 5,
+    "pitch": 12,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_WPFh0yclPpcOJJVUtsXh.webp",
+    "hotspotTargets": [
+      {
+        "target": "65865229571db028db04a59c",
+        "title": "Toàn cảnh Thị Trấn Óc Eo"
+      },
+      {
+        "target": "65893870571db028db04a677",
+        "title": "Thạch Đại Đao"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65893870571db028db04a677",
+    "group": "Thạch Đại Đao",
+    "title": "Thạch Đại Đao",
+    "coordinates": [
+      105.15281999999999,
+      10.2542
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_6eX8lfKJ2cCGtDswjpo6.webp",
+    "hotspotTargets": [
+      {
+        "target": "658937d8571db028db04a673",
+        "title": "Toàn cảnh trên cao"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65866680571db028db04a5a8",
+    "group": "Linh Sơn Cổ Tự",
+    "title": "Linh Sơn Cổ Tự",
+    "coordinates": [
+      105.15498,
+      10.24658
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 2,
+    "pitch": 11,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_lxgrVlUhlV7mZ4iVowsm.webp",
+    "hotspotTargets": [
+      {
+        "target": "658666e5571db028db04a5ab",
+        "title": "Cổng vào"
+      },
+      {
+        "target": "65865229571db028db04a59c",
+        "title": "Toàn cảnh Thị Trấn Óc Eo"
+      },
+      {
+        "target": "65af278ce9120f49f7ddc065",
+        "title": "Linh Sơn Nam"
+      },
+      {
+        "target": "660a6a6a4d7481494c14c3e1",
+        "title": "Linh Sơn Bắc"
+      },
+      {
+        "target": "660a6a184d7481494c14c3de",
+        "title": "Gò Sáu Thuận"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "658666e5571db028db04a5ab",
+    "group": "Linh Sơn Cổ Tự",
+    "title": "Linh Sơn Cổ Tự",
+    "coordinates": [
+      105.15509999999999,
+      10.24658
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": -2,
+    "pitch": 3,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_pFEd2FWfviAJLzAbFPpq.webp",
+    "hotspotTargets": [
+      {
+        "target": "65866680571db028db04a5a8",
+        "title": "Toàn cảnh trên cao"
+      },
+      {
+        "target": "6587d2b7571db028db04a5ff",
+        "title": "Đi tới"
+      },
+      {
+        "target": "6587d213571db028db04a5fd",
+        "title": "Linh Sơn Thánh Mẫu"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "6587d213571db028db04a5fd",
+    "group": "Linh Sơn Cổ Tự",
+    "title": "Linh Sơn Cổ Tự",
+    "coordinates": [
+      105.15522,
+      10.24658
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 177,
+    "pitch": 4,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_SullPhnbDhXjlQvtuLOz.webp",
+    "hotspotTargets": [
+      {
+        "target": "658666e5571db028db04a5ab",
+        "title": "Trở ra cổng"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "6587d2b7571db028db04a5ff",
+    "group": "Linh Sơn Cổ Tự",
+    "title": "Linh Sơn Cổ Tự",
+    "coordinates": [
+      105.15534,
+      10.24658
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 175,
+    "pitch": -5,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_QNRXEkQRiudKe7N45uU9.webp",
+    "hotspotTargets": [
+      {
+        "target": "658666e5571db028db04a5ab",
+        "title": "Trở ra"
+      },
+      {
+        "target": "6587d8bf571db028db04a605",
+        "title": "Đi tới"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "6587d8bf571db028db04a605",
+    "group": "Linh Sơn Cổ Tự",
+    "title": "Linh Sơn Cổ Tự",
+    "coordinates": [
+      105.15545999999999,
+      10.24658
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_OkMLunCkScKtlCPFl0ba.webp",
+    "hotspotTargets": [
+      {
+        "target": "6587d2b7571db028db04a5ff",
+        "title": "Trở ra"
+      },
+      {
+        "target": "6587dac4571db028db04a609",
+        "title": "Lên sân Chánh điện"
+      },
+      {
+        "target": "65af278ce9120f49f7ddc065",
+        "title": "Linh Sơn Nam"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "6587dac4571db028db04a609",
+    "group": "Linh Sơn Cổ Tự",
+    "title": "Linh Sơn Cổ Tự",
+    "coordinates": [
+      105.15558,
+      10.24658
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": -178,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_QYLR1zPUo0MDEvWK1hgt.webp",
+    "hotspotTargets": [
+      {
+        "target": "6587d8bf571db028db04a605",
+        "title": "Trở ra"
+      },
+      {
+        "target": "6587dc4f571db028db04a60f",
+        "title": "Vào Chánh điện"
+      },
+      {
+        "target": "6587dc4f571db028db04a60f",
+        "title": "Vào Chánh điện"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "6587dc4f571db028db04a60f",
+    "group": "Linh Sơn Cổ Tự",
+    "title": "Linh Sơn Cổ Tự",
+    "coordinates": [
+      105.1557,
+      10.24658
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": -178,
+    "pitch": 10,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_duaNdV8l1S8KVJCGaTqI.webp",
+    "hotspotTargets": [
+      {
+        "target": "6587dac4571db028db04a609",
+        "title": "Sân chánh điện"
+      },
+      {
+        "target": "6587dac4571db028db04a609",
+        "title": "Sân chánh điện"
+      },
+      {
+        "target": "6587eb67571db028db04a618",
+        "title": "Chánh điện phía sau"
+      },
+      {
+        "target": "6587eb67571db028db04a618",
+        "title": "Chánh điện phía sau"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "6587eb67571db028db04a618",
+    "group": "Linh Sơn Cổ Tự",
+    "title": "Linh Sơn Cổ Tự",
+    "coordinates": [
+      105.15498,
+      10.24668
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_E0Fgnbb9yGrHEHXqMDHn.webp",
+    "hotspotTargets": [
+      {
+        "target": "6587dc4f571db028db04a60f",
+        "title": "Trở ra Chánh điện"
+      },
+      {
+        "target": "6587dc4f571db028db04a60f",
+        "title": "Trở ra Chánh điện"
+      },
+      {
+        "target": "6587de45571db028db04a616",
+        "title": "Tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "6587de45571db028db04a616",
+    "group": "Linh Sơn Cổ Tự",
+    "title": "Linh Sơn Cổ Tự",
+    "coordinates": [
+      105.15509999999999,
+      10.24668
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 179,
+    "pitch": 2,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_6S4V1wXnh0sHUd3dERrb.webp",
+    "hotspotTargets": [
+      {
+        "target": "6587eb67571db028db04a618",
+        "title": "Trở ra"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65af278ce9120f49f7ddc065",
+    "group": "Linh Sơn Nam",
+    "title": "Linh Sơn Nam",
+    "coordinates": [
+      105.1538,
+      10.2446
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": -5,
+    "pitch": -7,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_NiSs9DlYvPjGStBHCmMY.webp",
+    "hotspotTargets": [
+      {
+        "target": "65af27afe9120f49f7ddc067",
+        "title": "Lối tham quan"
+      },
+      {
+        "target": "6587d8bf571db028db04a605",
+        "title": "Trở về Linh Sơn Cổ Tự"
+      },
+      {
+        "target": "65866680571db028db04a5a8",
+        "title": "Cảnh trên cao"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65af27afe9120f49f7ddc067",
+    "group": "Linh Sơn Nam",
+    "title": "Linh Sơn Nam",
+    "coordinates": [
+      105.15392,
+      10.2446
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_ueLb1jlxlEZ3PRoB5Cfm.webp",
+    "hotspotTargets": [
+      {
+        "target": "6587f9c2571db028db04a633",
+        "title": "Tham quan"
+      },
+      {
+        "target": "65af278ce9120f49f7ddc065",
+        "title": "Trở về"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "6587f9a5571db028db04a631",
+    "group": "Linh Sơn Nam",
+    "title": "Linh Sơn Nam",
+    "coordinates": [
+      105.15404000000001,
+      10.2446
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": -35,
+    "pitch": -1,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_G10r6ESuACGBXJN9jH8S.webp",
+    "hotspotTargets": [
+      {
+        "target": "6587f9c2571db028db04a633",
+        "title": "Tham quan"
+      },
+      {
+        "target": "65af27afe9120f49f7ddc067",
+        "title": "Trở về"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "6587f9c2571db028db04a633",
+    "group": "Linh Sơn Nam",
+    "title": "Linh Sơn Nam",
+    "coordinates": [
+      105.15416,
+      10.2446
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_iqA7E90Ebf3VR8sEER8n.webp",
+    "hotspotTargets": [
+      {
+        "target": "6587f9a5571db028db04a631",
+        "title": "Tham quan"
+      },
+      {
+        "target": "65af27afe9120f49f7ddc067",
+        "title": "Trở về"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "6587f5c1571db028db04a627",
+    "group": "Gò Út Trạnh",
+    "title": "Gò Út Trạnh",
+    "coordinates": [
+      105.1492,
+      10.2609
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_LaKft3bcK8uDuZ9CQuES.webp",
+    "hotspotTargets": [
+      {
+        "target": "6587f5d8571db028db04a629",
+        "title": "Lối vào"
+      },
+      {
+        "target": "65865229571db028db04a59c",
+        "title": "Toàn cảnh Thị Trấn Óc Eo"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "6587f5d8571db028db04a629",
+    "group": "Gò Út Trạnh",
+    "title": "Gò Út Trạnh",
+    "coordinates": [
+      105.14931999999999,
+      10.2609
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 3,
+    "pitch": 11,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_qg2tGflCf1grLTjMkvss.webp",
+    "hotspotTargets": [
+      {
+        "target": "6587f5c1571db028db04a627",
+        "title": "Toàn cảnh trên cao"
+      },
+      {
+        "target": "6587fed8571db028db04a63c",
+        "title": "Tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "6587fed8571db028db04a63c",
+    "group": "Gò Út Trạnh",
+    "title": "Gò Út Trạnh",
+    "coordinates": [
+      105.14944,
+      10.2609
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_RXM8EcT74d3FwQWGoND5.webp",
+    "hotspotTargets": [
+      {
+        "target": "6587ff86571db028db04a63f",
+        "title": "Tham quan"
+      },
+      {
+        "target": "6587f5d8571db028db04a629",
+        "title": "Trở ra"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "6587ff86571db028db04a63f",
+    "group": "Gò Út Trạnh",
+    "title": "Gò Út Trạnh",
+    "coordinates": [
+      105.14956,
+      10.2609
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_WyefxOUGJv4lEDRe1Y4Y.webp",
+    "hotspotTargets": [
+      {
+        "target": "6587fed8571db028db04a63c",
+        "title": "Tham quan"
+      },
+      {
+        "target": "6587ff99571db028db04a640",
+        "title": "Tham quan"
+      },
+      {
+        "target": "6587f5d8571db028db04a629",
+        "title": "Trở ra"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "6587ff99571db028db04a640",
+    "group": "Gò Út Trạnh",
+    "title": "Gò Út Trạnh",
+    "coordinates": [
+      105.14967999999999,
+      10.2609
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_QWI0WKy1tENUb4ONo0gJ.webp",
+    "hotspotTargets": [
+      {
+        "target": "6587ff86571db028db04a63f",
+        "title": "Tham quan"
+      },
+      {
+        "target": "6587fed8571db028db04a63c",
+        "title": "Tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65af2865e9120f49f7ddc069",
+    "group": "Gò Cây Thị A - B",
+    "title": "Gò Cây Thị A",
+    "coordinates": [
+      105.1519,
+      10.2522
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": -7,
+    "pitch": 3,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_qERppruyaTqrVBDfXPmR.webp",
+    "hotspotTargets": [
+      {
+        "target": "65af2953e9120f49f7ddc06b",
+        "title": "Gò Cây Thị B"
+      },
+      {
+        "target": "660a64324d7481494c14c3c2",
+        "title": "Toàn cảnh"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65af2953e9120f49f7ddc06b",
+    "group": "Gò Cây Thị A - B",
+    "title": "Gò Cây Thị B",
+    "coordinates": [
+      105.15202,
+      10.2522
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": -1,
+    "pitch": 2,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_XBoDm26Hdg3lwHxTbp2q.webp",
+    "hotspotTargets": [
+      {
+        "target": "65af2865e9120f49f7ddc069",
+        "title": "Gò Cây Thị A"
+      },
+      {
+        "target": "65af2971e9120f49f7ddc06d",
+        "title": "Lối ra cổng"
+      },
+      {
+        "target": "658814be571db028db04a64a",
+        "title": "Cảnh trên cao"
+      },
+      {
+        "target": "660a685c4d7481494c14c3d4",
+        "title": "Toàn cảnh"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "65af2971e9120f49f7ddc06d",
+    "group": "Gò Cây Thị A - B",
+    "title": "Gò Cây Thị A - B",
+    "coordinates": [
+      105.15214,
+      10.2522
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_Mo9qow2ZIceCgQtFfjYi.webp",
+    "hotspotTargets": [
+      {
+        "target": "65af2953e9120f49f7ddc06b",
+        "title": "Lối vào"
+      },
+      {
+        "target": "658814be571db028db04a64a",
+        "title": "Toàn cảnh trên cao"
+      },
+      {
+        "target": "65865229571db028db04a59c",
+        "title": "Trở về Thị Trấn Óc Eo"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "660a64324d7481494c14c3c2",
+    "group": "Gò Cây Thị A - B",
+    "title": "Gò Cây Thị A",
+    "coordinates": [
+      105.15226,
+      10.2522
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 173,
+    "pitch": 10,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_07oAb4ESiyXGGM0xgtK6.webp",
+    "hotspotTargets": [
+      {
+        "target": "65af2865e9120f49f7ddc069",
+        "title": "Trở về"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "660a685c4d7481494c14c3d4",
+    "group": "Gò Cây Thị A - B",
+    "title": "Gò Cây Thị B",
+    "coordinates": [
+      105.15238,
+      10.2522
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_gHNf8Esbrd4mF0cAbtNA.webp",
+    "hotspotTargets": [
+      {
+        "target": "65af2953e9120f49f7ddc06b",
+        "title": "Trở về"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "658814be571db028db04a64a",
+    "group": "Gò Cây Thị A - B",
+    "title": "Toàn cảnh trên cao",
+    "coordinates": [
+      105.1525,
+      10.2522
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "aerial",
+    "yaw": 9,
+    "pitch": 32,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_Ogpof2Tmh3SxBt2XbGKH.webp",
+    "hotspotTargets": [
+      {
+        "target": "65af2953e9120f49f7ddc06b",
+        "title": "Gò Cây Thị B"
+      },
+      {
+        "target": "65865229571db028db04a59c",
+        "title": "Toàn cảnh Thị Trấn Óc Eo"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "658a8e45571db028db04a726",
+    "group": "Gò Giồng Cát",
+    "title": "Gò Giồng Cát",
+    "coordinates": [
+      105.1584,
+      10.26
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_ttHyXysQptSpqQuIbYD0.webp",
+    "hotspotTargets": [
+      {
+        "target": "658a8e91571db028db04a727",
+        "title": "Tham quan"
+      },
+      {
+        "target": "658a8eae571db028db04a728",
+        "title": "Tham quan"
+      },
+      {
+        "target": "65865229571db028db04a59c",
+        "title": "Toàn cảnh Thị Trấn Óc Eo"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "658a8e91571db028db04a727",
+    "group": "Gò Giồng Cát",
+    "title": "Gò Gồng Cát",
+    "coordinates": [
+      105.15852,
+      10.26
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_93qGDZ5vbFnUL9dtIWCw.webp",
+    "hotspotTargets": [
+      {
+        "target": "658a8ca1571db028db04a71f",
+        "title": "Tham quan"
+      },
+      {
+        "target": "658a8e45571db028db04a726",
+        "title": "Toàn cảnh trên cao"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "658a8eae571db028db04a728",
+    "group": "Gò Giồng Cát",
+    "title": "Gò Gồng Cát",
+    "coordinates": [
+      105.15864,
+      10.26
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_9SLw4kWXlD3gof8DqVrp.webp",
+    "hotspotTargets": [
+      {
+        "target": "658a8ca1571db028db04a720",
+        "title": "Giếng nước cổ xưa"
+      },
+      {
+        "target": "658a8d11571db028db04a722",
+        "title": "Tham quan"
+      },
+      {
+        "target": "658a8e45571db028db04a726",
+        "title": "Toàn cảnh trên cao"
+      },
+      {
+        "target": "658a8ca1571db028db04a71f",
+        "title": "Tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "658a8d11571db028db04a722",
+    "group": "Gò Giồng Cát",
+    "title": "Gò Gồng Cát",
+    "coordinates": [
+      105.15876,
+      10.26
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_gYBYVXUtQl1ZwUjsXzYZ.webp",
+    "hotspotTargets": [
+      {
+        "target": "658a8e45571db028db04a726",
+        "title": "Toàn cảnh trên cao"
+      },
+      {
+        "target": "658a8eae571db028db04a728",
+        "title": "Góc nhìn trên cao"
+      },
+      {
+        "target": "658a8ca1571db028db04a720",
+        "title": "Giếng nước cổ xưa"
+      },
+      {
+        "target": "658a8ca1571db028db04a71f",
+        "title": "Tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "658a8ca1571db028db04a71f",
+    "group": "Gò Giồng Cát",
+    "title": "Gò Gồng Cát",
+    "coordinates": [
+      105.15888,
+      10.26
+    ],
+    "anchorAccuracy": "group-approximate",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_x2GdlPdjPeYg10oUF0Kn.webp",
+    "hotspotTargets": [
+      {
+        "target": "658a8e91571db028db04a727",
+        "title": "Góc nhìn trên cao"
+      },
+      {
+        "target": "658a8e45571db028db04a726",
+        "title": "Toàn cảnh trên cao"
+      },
+      {
+        "target": "658a8d11571db028db04a722",
+        "title": "Tham quan"
+      }
+    ],
+    "source": "Project VR scene registry"
+  },
+  {
+    "id": "658a8ca1571db028db04a720",
+    "group": "Gò Giồng Cát",
+    "title": "Giếng nước cổ xưa",
+    "coordinates": [
+      105.1589,
+      10.2594
+    ],
+    "anchorAccuracy": "reference-or-curated",
+    "viewType": "ground",
+    "yaw": 0,
+    "pitch": 0,
+    "hfov": 100,
+    "vrImage": "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/4000x_tELcUm5nQTaqpbTYZKAb.webp",
+    "hotspotTargets": [
+      {
+        "target": "658a8eae571db028db04a728",
+        "title": "Góc nhìn trên cao"
+      }
+    ],
+    "source": "Project VR scene registry"
+  }
+]
