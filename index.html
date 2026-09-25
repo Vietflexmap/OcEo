@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1712" />
+  <meta name="description" content="WebGIS 3D mô phỏng trực quan không gian di tích Óc Eo – Ba Thê, An Giang." />
+  <title>Óc Eo – Ba Thê | WebGIS 3D</title>
+
+  <link rel="preconnect" href="https://unpkg.com" />
+  <link rel="preconnect" href="https://tile.openstreetmap.org" />
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="map" aria-label="Bản đồ 3D Óc Eo – Ba Thê"></div>
+
+    <header class="topbar glass">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M8 35c9-14 12-22 18-28 5 8 8 14 14 28H8Z"/><path d="M14 36h25" /></svg>
+        </div>
+        <div>
+          <div class="eyebrow">VIETFLEX · HERITAGE WEBGIS</div>
+          <h1>Óc Eo – Ba Thê</h1>
+          <p>Mô phỏng địa hình & không gian khảo cổ 3D</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button class="icon-btn" id="btnInfo" title="Thông tin dự án" aria-label="Thông tin dự án">ⓘ</button>
+        <a class="primary-btn" href="./vr.html" target="_blank" rel="noopener">VR 360° <span>↗</span></a>
+      </div>
+    </header>
+
+    <aside class="control-panel glass" id="panel">
+      <div class="panel-head">
+        <div>
+          <span class="kicker">BẢNG ĐIỀU KHIỂN</span>
+          <h2>Khám phá không gian</h2>
+        </div>
+        <button class="close-panel" id="closePanel" aria-label="Thu gọn">×</button>
+      </div>
+
+      <section class="control-card">
+        <div class="control-title">
+          <span>Địa hình 3D</span>
+          <button class="switch is-on" id="terrainSwitch" aria-pressed="true"><i></i></button>
+        </div>
+        <label class="range-row">
+          <span>Phóng đại địa hình</span>
+          <b id="terrainValue">1.8×</b>
+        </label>
+        <input id="terrainRange" type="range" min="0" max="4" value="1.8" step="0.1" />
+        <div class="elevation-legend">
+          <div class="gradient"></div>
+          <div><span>Thấp</span><span>Độ cao mô phỏng</span><span>Cao</span></div>
+        </div>
+      </section>
+
+      <section class="control-card">
+        <div class="control-title"><span>Lớp bản đồ</span></div>
+        <label class="check-row"><input type="checkbox" id="boundaryToggle" checked /><span class="swatch dash-red"></span><span>Ranh giới bảo vệ (tham khảo)</span></label>
+        <label class="check-row"><input type="checkbox" id="archaeologyToggle" checked /><span class="swatch dash-magenta"></span><span>Khu khảo cổ minh họa</span></label>
+        <label class="check-row"><input type="checkbox" id="hillshadeToggle" checked /><span class="swatch hill"></span><span>Đổ bóng địa hình</span></label>
+        <label class="check-row"><input type="checkbox" id="labelsToggle" checked /><span class="swatch dot"></span><span>Điểm di tích</span></label>
+      </section>
+
+      <section class="control-card">
+        <div class="control-title"><span>Chế độ trình diễn</span></div>
+        <div class="button-grid">
+          <button class="mode-btn" id="btnOverview"><span>⌂</span>Tổng quan</button>
+          <button class="mode-btn" id="btnMountain"><span>▲</span>Núi Ba Thê</button>
+          <button class="mode-btn" id="btnSite"><span>⌖</span>Khu Óc Eo</button>
+          <button class="mode-btn accent" id="btnOrbit"><span>◉</span><b>Bay tự động</b></button>
+        </div>
+        <button class="story-btn" id="btnStory"><span>▶</span> Bắt đầu hành trình di sản</button>
+      </section>
+
+      <div class="notice">
+        <strong>Chú ý khoa học</strong>
+        <p>Ranh giới và địa hình trên trang phục vụ mô phỏng trực quan; không thay thế hồ sơ pháp lý, số liệu khảo sát hoặc DEM đo đạc chuyên ngành.</p>
+      </div>
+    </aside>
+
+    <button class="floating-panel-btn glass" id="openPanel" aria-label="Mở bảng điều khiển">☰</button>
+
+    <div class="legend glass">
+      <div><span class="line red"></span>Ranh giới bảo vệ</div>
+      <div><span class="line magenta"></span>Khu khảo cổ</div>
+      <div><span class="poi-symbol">●</span>Điểm di tích / tham quan</div>
+    </div>
+
+    <div class="statusbar glass">
+      <span id="cameraStatus">3D · Pitch 56°</span>
+      <span class="sep"></span>
+      <span id="coordStatus">10.2567°N · 105.1433°E</span>
+      <span class="sep"></span>
+      <span id="zoomStatus">Zoom 13.0</span>
+    </div>
+
+    <div class="story-card glass" id="storyCard" aria-live="polite">
+      <button id="storyClose" aria-label="Đóng">×</button>
+      <div class="story-index" id="storyIndex">01 / 06</div>
+      <h3 id="storyTitle">Núi Ba Thê</h3>
+      <p id="storyText">Trung tâm địa hình nổi bật, tạo nên không gian thiêng và điểm nhìn bao quát cánh đồng Óc Eo.</p>
+      <div class="story-actions">
+        <button id="storyPrev">← Trước</button>
+        <button id="storyNext">Tiếp →</button>
+      </div>
+    </div>
+
+    <dialog id="infoDialog">
+      <button class="dialog-close" id="dialogClose" aria-label="Đóng">×</button>
+      <span class="kicker">ÓC EO – BA THÊ WEBGIS</span>
+      <h2>Không gian số để quan sát trước khi đi sâu vào dữ liệu</h2>
+      <p>Trang kết hợp bản đồ 2D/3D, địa hình DEM công khai, lớp ranh giới minh họa và tour VR 360°. Mục tiêu là giúp người xem hiểu quan hệ giữa núi Ba Thê, cánh đồng Óc Eo và các điểm di tích trước khi mở hồ sơ khảo cổ chi tiết.</p>
+      <div class="dialog-grid">
+        <div><b>2D / 3D</b><span>Chuyển góc nhìn tức thời</span></div>
+        <div><b>Story tour</b><span>Bay qua các điểm chính</span></div>
+        <div><b>VR 360°</b><span>Tham quan cảnh thực địa</span></div>
+        <div><b>Không API key</b><span>Phù hợp GitHub Pages</span></div>
+      </div>
+    </dialog>
+
+    <div id="toast" role="status"></div>
+  </div>
+
+  <script src="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
