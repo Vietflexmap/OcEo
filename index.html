@@ -1,132 +1,188 @@
 <!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#0b1712" />
-  <meta name="description" content="WebGIS 3D mô phỏng trực quan không gian di tích Óc Eo – Ba Thê, An Giang." />
-  <title>Óc Eo – Ba Thê | WebGIS 3D</title>
-
-  <link rel="preconnect" href="https://unpkg.com" />
-  <link rel="preconnect" href="https://tile.openstreetmap.org" />
-  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.css" />
-  <link rel="stylesheet" href="./styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07130e">
+  <meta name="description" content="Digital Twin Óc Eo – Ba Thê: địa hình 3D, ảnh vệ tinh, VR 360°, timeline, kênh cổ, mặt cắt địa hình và dữ liệu GIS di sản.">
+  <title>Digital Twin Óc Eo – Ba Thê</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://s3.amazonaws.com">
+  <link rel="preconnect" href="https://server.arcgisonline.com">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <div id="app">
-    <div id="map" aria-label="Bản đồ 3D Óc Eo – Ba Thê"></div>
+<div id="app">
+  <div id="map" aria-label="Digital Twin Óc Eo – Ba Thê"></div>
 
-    <header class="topbar glass">
-      <div class="brand">
-        <div class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><path d="M8 35c9-14 12-22 18-28 5 8 8 14 14 28H8Z"/><path d="M14 36h25" /></svg>
-        </div>
-        <div>
-          <div class="eyebrow">VIETFLEX · HERITAGE WEBGIS</div>
-          <h1>Óc Eo – Ba Thê</h1>
-          <p>Mô phỏng địa hình & không gian khảo cổ 3D</p>
-        </div>
+  <header class="topbar glass">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><path d="M7 36c8-12 12-23 19-29 5 7 9 17 15 29H7Z"/><path d="M12 36h30"/><path d="M18 29c6-3 12-3 18 0"/></svg>
       </div>
-      <div class="top-actions">
-        <button class="icon-btn" id="btnInfo" title="Thông tin dự án" aria-label="Thông tin dự án">ⓘ</button>
-        <a class="primary-btn" href="./vr.html" target="_blank" rel="noopener">VR 360° <span>↗</span></a>
-      </div>
-    </header>
-
-    <aside class="control-panel glass" id="panel">
-      <div class="panel-head">
-        <div>
-          <span class="kicker">BẢNG ĐIỀU KHIỂN</span>
-          <h2>Khám phá không gian</h2>
-        </div>
-        <button class="close-panel" id="closePanel" aria-label="Thu gọn">×</button>
-      </div>
-
-      <section class="control-card">
-        <div class="control-title">
-          <span>Địa hình 3D</span>
-          <button class="switch is-on" id="terrainSwitch" aria-pressed="true"><i></i></button>
-        </div>
-        <label class="range-row">
-          <span>Phóng đại địa hình</span>
-          <b id="terrainValue">1.8×</b>
-        </label>
-        <input id="terrainRange" type="range" min="0" max="4" value="1.8" step="0.1" />
-        <div class="elevation-legend">
-          <div class="gradient"></div>
-          <div><span>Thấp</span><span>Độ cao mô phỏng</span><span>Cao</span></div>
-        </div>
-      </section>
-
-      <section class="control-card">
-        <div class="control-title"><span>Lớp bản đồ</span></div>
-        <label class="check-row"><input type="checkbox" id="boundaryToggle" checked /><span class="swatch dash-red"></span><span>Ranh giới bảo vệ (tham khảo)</span></label>
-        <label class="check-row"><input type="checkbox" id="archaeologyToggle" checked /><span class="swatch dash-magenta"></span><span>Khu khảo cổ minh họa</span></label>
-        <label class="check-row"><input type="checkbox" id="hillshadeToggle" checked /><span class="swatch hill"></span><span>Đổ bóng địa hình</span></label>
-        <label class="check-row"><input type="checkbox" id="labelsToggle" checked /><span class="swatch dot"></span><span>Điểm di tích</span></label>
-      </section>
-
-      <section class="control-card">
-        <div class="control-title"><span>Chế độ trình diễn</span></div>
-        <div class="button-grid">
-          <button class="mode-btn" id="btnOverview"><span>⌂</span>Tổng quan</button>
-          <button class="mode-btn" id="btnMountain"><span>▲</span>Núi Ba Thê</button>
-          <button class="mode-btn" id="btnSite"><span>⌖</span>Khu Óc Eo</button>
-          <button class="mode-btn accent" id="btnOrbit"><span>◉</span><b>Bay tự động</b></button>
-        </div>
-        <button class="story-btn" id="btnStory"><span>▶</span> Bắt đầu hành trình di sản</button>
-      </section>
-
-      <div class="notice">
-        <strong>Chú ý khoa học</strong>
-        <p>Ranh giới và địa hình trên trang phục vụ mô phỏng trực quan; không thay thế hồ sơ pháp lý, số liệu khảo sát hoặc DEM đo đạc chuyên ngành.</p>
-      </div>
-    </aside>
-
-    <button class="floating-panel-btn glass" id="openPanel" aria-label="Mở bảng điều khiển">☰</button>
-
-    <div class="legend glass">
-      <div><span class="line red"></span>Ranh giới bảo vệ</div>
-      <div><span class="line magenta"></span>Khu khảo cổ</div>
-      <div><span class="poi-symbol">●</span>Điểm di tích / tham quan</div>
-    </div>
-
-    <div class="statusbar glass">
-      <span id="cameraStatus">3D · Pitch 56°</span>
-      <span class="sep"></span>
-      <span id="coordStatus">10.2567°N · 105.1433°E</span>
-      <span class="sep"></span>
-      <span id="zoomStatus">Zoom 13.0</span>
-    </div>
-
-    <div class="story-card glass" id="storyCard" aria-live="polite">
-      <button id="storyClose" aria-label="Đóng">×</button>
-      <div class="story-index" id="storyIndex">01 / 06</div>
-      <h3 id="storyTitle">Núi Ba Thê</h3>
-      <p id="storyText">Trung tâm địa hình nổi bật, tạo nên không gian thiêng và điểm nhìn bao quát cánh đồng Óc Eo.</p>
-      <div class="story-actions">
-        <button id="storyPrev">← Trước</button>
-        <button id="storyNext">Tiếp →</button>
+      <div class="brand-copy">
+        <div class="eyebrow">VIETFLEX · HERITAGE DIGITAL TWIN</div>
+        <h1>Óc Eo – Ba Thê</h1>
+        <p>Không gian di sản · GIS 3D · VR 360° · Timeline</p>
       </div>
     </div>
 
-    <dialog id="infoDialog">
-      <button class="dialog-close" id="dialogClose" aria-label="Đóng">×</button>
-      <span class="kicker">ÓC EO – BA THÊ WEBGIS</span>
-      <h2>Không gian số để quan sát trước khi đi sâu vào dữ liệu</h2>
-      <p>Trang kết hợp bản đồ 2D/3D, địa hình DEM công khai, lớp ranh giới minh họa và tour VR 360°. Mục tiêu là giúp người xem hiểu quan hệ giữa núi Ba Thê, cánh đồng Óc Eo và các điểm di tích trước khi mở hồ sơ khảo cổ chi tiết.</p>
-      <div class="dialog-grid">
-        <div><b>2D / 3D</b><span>Chuyển góc nhìn tức thời</span></div>
-        <div><b>Story tour</b><span>Bay qua các điểm chính</span></div>
-        <div><b>VR 360°</b><span>Tham quan cảnh thực địa</span></div>
-        <div><b>Không API key</b><span>Phù hợp GitHub Pages</span></div>
-      </div>
-    </dialog>
+    <div class="data-badges">
+      <span class="badge"><i class="ok"></i> DEM thực</span>
+      <span class="badge"><i class="ok"></i> 53 scene VR</span>
+      <span class="badge warning"><i></i> Ranh giới A–D minh họa</span>
+    </div>
 
-    <div id="toast" role="status"></div>
+    <nav class="top-actions">
+      <button id="btnOverview" class="top-btn" title="Toàn cảnh">⌂ <span>Tổng quan</span></button>
+      <button id="btnMountain" class="top-btn" title="Núi Ba Thê">▲ <span>Ba Thê</span></button>
+      <button id="btnProfile" class="top-btn" title="Mặt cắt địa hình">⌁ <span>Mặt cắt</span></button>
+      <button id="btnStory" class="top-btn" title="Hành trình di sản">▶ <span>Hành trình</span></button>
+      <button id="btnVR" class="top-btn gold" title="VR 360">◉ <span>VR 360°</span></button>
+      <button id="btnAbout" class="round-btn" title="Thông tin">i</button>
+    </nav>
+  </header>
+
+  <aside id="leftPanel" class="left-panel glass">
+    <button id="panelToggle" class="panel-toggle" title="Thu gọn / mở bảng">‹</button>
+    <div class="panel-inner">
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input id="searchInput" type="search" placeholder="Tìm Linh Sơn, Gò Cây Thị, Nhà trưng bày…" autocomplete="off">
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="places">Điểm</button>
+        <button class="tab-btn" data-tab="scenes">VR <b id="sceneCount">53 scene</b></button>
+        <button class="tab-btn" data-tab="layers">Lớp GIS</button>
+      </div>
+
+      <div class="tab-pane active" id="tab-places">
+        <div class="pane-intro">
+          <span>SPATIAL HERITAGE REGISTRY</span>
+          <p>Chọn một cụm để camera bay tới và mở các scene VR gắn với vị trí.</p>
+        </div>
+        <div id="poiList" class="poi-list"></div>
+        <div class="accuracy-legend">
+          <span><i class="ref"></i>tham chiếu</span>
+          <span><i class="edit"></i>biên tập</span>
+          <span><i class="ill"></i>minh họa</span>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="tab-scenes">
+        <div class="pane-intro">
+          <span>VR SCENE GRAPH</span>
+          <p>Toàn bộ cảnh thực được gom theo cụm; chọn scene để đồng bộ GIS ↔ VR.</p>
+        </div>
+        <div id="sceneList" class="scene-list"></div>
+      </div>
+
+      <div class="tab-pane" id="tab-layers">
+        <section class="layer-card">
+          <div class="layer-title">Nền bản đồ</div>
+          <label class="radio-row"><input id="basemapSatellite" type="radio" name="basemap" checked><span><b>Ảnh vệ tinh</b><small>Esri World Imagery</small></span></label>
+          <label class="radio-row"><input id="basemapOSM" type="radio" name="basemap"><span><b>OpenStreetMap</b><small>Nền tham chiếu đường / địa danh</small></span></label>
+        </section>
+
+        <section class="layer-card">
+          <div class="layer-title">Địa hình thật</div>
+          <label class="toggle-row"><input id="terrainToggle" type="checkbox" checked><span><b>DEM Terrain 3D</b><small>Mapzen/AWS Terrarium · không phải DEM đo đạc địa phương</small></span></label>
+          <div class="range-head"><span>Phóng đại địa hình</span><b id="terrainValue">1.4×</b></div>
+          <input id="terrainRange" type="range" min="0.5" max="4" value="1.35" step="0.05">
+          <label class="toggle-row compact"><input id="layer-hillshade" type="checkbox" checked><span>Hillshade địa hình</span></label>
+        </section>
+
+        <section class="layer-card">
+          <div class="layer-title">Digital Twin</div>
+          <label class="toggle-row compact"><input id="layer-zones" type="checkbox" checked><span><i class="layer-symbol zones"></i>4 khu A–B–C–D</span></label>
+          <label class="toggle-row compact"><input id="layer-canals" type="checkbox" checked><span><i class="layer-symbol canals"></i>Kênh cổ tái dựng</span></label>
+          <label class="toggle-row compact"><input id="layer-reconstruction" type="checkbox" checked><span><i class="layer-symbol model"></i>Khối 3D di tích / tái dựng</span></label>
+          <label class="toggle-row compact"><input id="layer-pois" type="checkbox" checked><span><i class="layer-symbol poi"></i>Điểm di tích</span></label>
+          <label class="toggle-row compact"><input id="layer-scenes" type="checkbox"><span><i class="layer-symbol scene"></i>Neo toàn bộ scene VR</span></label>
+        </section>
+
+        <div class="science-note">
+          <b>Phân lớp khoa học</b>
+          <p>DEM và ảnh nền là dữ liệu thực toàn cầu. Geometry có nhãn “minh họa / tái dựng” là khung UX, cần thay bằng hồ sơ khảo sát chính thức trước khi dùng cho nghiệp vụ.</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <aside id="contextPanel" class="context-panel glass">
+    <button id="contextClose" class="close-btn" aria-label="Đóng">×</button>
+    <div id="contextEyebrow" class="context-eyebrow">DI SẢN</div>
+    <h2 id="contextTitle">Óc Eo – Ba Thê</h2>
+    <div id="contextBody"></div>
+  </aside>
+
+  <section class="timeline glass" aria-label="Timeline Digital Twin">
+    <div class="timeline-meta">
+      <div><span id="timeEra">Hiện trạng</span><b id="timeYear">2026</b></div>
+      <p id="timeDescription">Ảnh vệ tinh, địa hình thực và các điểm VR hiện trạng.</p>
+    </div>
+    <div class="timeline-main">
+      <div class="timeline-stops">
+        <button class="time-stop" data-value="0"><b>Óc Eo cổ</b><small>TK I–VII</small></button>
+        <button class="time-stop" data-value="50"><b>Khảo cổ</b><small>TK XX–XXI</small></button>
+        <button class="time-stop active" data-value="100"><b>Hiện trạng</b><small>2026</small></button>
+      </div>
+      <input id="timelineRange" type="range" min="0" max="100" value="100" step="1" aria-label="Chuyển thời gian từ Óc Eo cổ đến hiện trạng 2026">
+      <div class="timeline-caption"><span>Tái dựng diễn giải</span><span>Dữ liệu / khảo cổ</span><span>Thực địa 2026</span></div>
+    </div>
+  </section>
+
+  <div id="storyPill" class="story-pill glass">
+    <button id="storyPrev">←</button>
+    <div><small>HÀNH TRÌNH DI SẢN <span id="storyCounter">1/7</span></small><b id="storyLabel">01 · Núi Ba Thê</b></div>
+    <button id="storyNext">→</button>
+    <button id="storyClose" class="story-x">×</button>
   </div>
 
-  <script src="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.js"></script>
-  <script src="./app.js"></script>
+  <section id="profileDrawer" class="profile-drawer glass">
+    <div class="profile-head">
+      <div><small>DEM PROFILE</small><h3 id="profileTitle">Mặt cắt địa hình</h3><p id="profileMeta">Chọn hai điểm A → B.</p></div>
+      <div><button id="profileRestart">↻ Đo lại</button><button id="profileClose">×</button></div>
+    </div>
+    <div id="profileChart" class="profile-chart"><div class="profile-empty">A → B</div></div>
+  </section>
+
+  <section id="vrOverlay" class="vr-overlay">
+    <div class="vr-toolbar glass">
+      <div><small>GIS ↔ VR LIVE SYNC</small><b id="vrTitle">VR 360°</b></div>
+      <span>Di chuyển trong VR, bản đồ sẽ theo scene khi quay lại.</span>
+      <button id="vrClose">×</button>
+    </div>
+    <iframe id="vrFrame" title="VR 360° Óc Eo" allow="fullscreen; gyroscope; accelerometer" loading="lazy"></iframe>
+  </section>
+
+  <div id="mapStatus" class="map-status glass">10.2510°N · 105.1515°E · z13.4 · pitch 58°</div>
+  <div class="source-status glass">
+    <span><i class="live"></i> Digital Twin framework</span>
+    <span>DEM: Terrarium</span>
+    <span>Imagery: Esri</span>
+    <span>VR: project scenes</span>
+  </div>
+  <div id="toast" role="status"></div>
+
+  <dialog id="aboutDialog">
+    <button id="aboutClose" class="dialog-close">×</button>
+    <div class="dialog-eyebrow">DIGITAL TWIN ÓC EO – BA THÊ</div>
+    <h2>Một giao diện thống nhất giữa GIS, địa hình, tái dựng và cảnh thực VR.</h2>
+    <p>Bản khung này dùng DEM toàn cầu thực để tạo địa hình 3D và mặt cắt, ảnh vệ tinh làm nền hiện trạng, toàn bộ scene VR của dự án làm lớp trải nghiệm thực địa, đồng thời cung cấp cấu trúc thay thế dữ liệu cho ranh giới A–B–C–D, kênh cổ và mô hình tái dựng.</p>
+    <div class="about-grid">
+      <div><b>53</b><span>scene VR đã đăng ký</span></div>
+      <div><b>4</b><span>khu A–B–C–D trong khung GIS</span></div>
+      <div><b>3D</b><span>terrain + massing</span></div>
+      <div><b>A→B</b><span>mặt cắt DEM tương tác</span></div>
+    </div>
+    <div class="about-warning"><b>Ranh giới khoa học / pháp lý</b><p>Các lớp được đánh dấu minh họa không được hiểu là ranh giới pháp lý hay kết quả đo đạc khảo cổ. Chúng được thiết kế để có thể thay trực tiếp bằng GeoJSON/PMTiles chính thức sau này.</p></div>
+  </dialog>
+</div>
+
+<script src="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.js"></script>
+<script type="module" src="./app/main.js"></script>
 </body>
 </html>
