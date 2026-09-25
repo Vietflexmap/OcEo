@@ -1,0 +1,117 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kênh cổ 01",
+        "status": "reconstruction-illustrative"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            105.136,
+            10.258
+          ],
+          [
+            105.148,
+            10.255
+          ],
+          [
+            105.16,
+            10.251
+          ],
+          [
+            105.177,
+            10.247
+          ],
+          [
+            105.184,
+            10.244
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kênh cổ 02",
+        "status": "reconstruction-illustrative"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            105.145,
+            10.266
+          ],
+          [
+            105.15,
+            10.256
+          ],
+          [
+            105.155,
+            10.246
+          ],
+          [
+            105.16,
+            10.235
+          ],
+          [
+            105.165,
+            10.228
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kênh cổ 03",
+        "status": "reconstruction-illustrative"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            105.154,
+            10.263
+          ],
+          [
+            105.165,
+            10.258
+          ],
+          [
+            105.177,
+            10.255
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kênh cổ 04",
+        "status": "reconstruction-illustrative"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            105.151,
+            10.249
+          ],
+          [
+            105.161,
+            10.245
+          ],
+          [
+            105.174,
+            10.239
+          ]
+        ]
+      }
+    }
+  ]
+}
