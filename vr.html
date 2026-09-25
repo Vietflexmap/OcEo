@@ -1,1 +1,549 @@
-The requested file reference is not currently visible. Use files.search or files.list to rediscover the file, then retry with a returned ref_id or file_id.
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Di tích văn hóa Óc Eo An Giang — VR 360°</title>
+
+<!-- Pannellum từ CDN (cần Internet) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; width: 100%; overflow: hidden; background: #000; color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+  #app { display: flex; height: 100vh; }
+
+  /* Sidebar */
+  #sidebar {
+    width: 280px; background: #111; overflow-y: auto;
+    border-right: 1px solid #222; transition: transform .3s ease; flex-shrink: 0;
+  }
+  #sidebar.hidden { transform: translateX(-100%); margin-right: -280px; }
+  #sidebar h1 {
+    font-size: 15px; padding: 16px; background: #1a1a1a;
+    border-bottom: 1px solid #222; color: #f0c330;
+  }
+  #sidebar .group { border-bottom: 1px solid #1c1c1c; }
+  #sidebar .group-title {
+    font-size: 12px; padding: 10px 14px; background: #161616; color: #8fb9c1;
+    text-transform: uppercase; letter-spacing: .5px; font-weight: 600;
+  }
+  #sidebar .scene-item {
+    font-size: 13px; padding: 9px 14px 9px 22px; cursor: pointer;
+    color: #ccc; border-left: 3px solid transparent; transition: background .15s;
+  }
+  #sidebar .scene-item:hover { background: #1e1e1e; color: #fff; }
+  #sidebar .scene-item.active {
+    background: #5d9ea7; color: #fff; border-left-color: #f0c330;
+  }
+
+  /* Viewer */
+  #viewer-wrap { flex: 1; position: relative; }
+  #panorama { width: 100%; height: 100%; }
+
+  #toggle-sidebar {
+    position: absolute; top: 14px; left: 14px; z-index: 100;
+    background: rgba(0,0,0,.6); border: 1px solid #333; color: #fff;
+    width: 40px; height: 40px; border-radius: 6px; cursor: pointer;
+    font-size: 18px; display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(6px);
+  }
+  #toggle-sidebar:hover { background: rgba(93,158,167,.85); }
+
+  #scene-title {
+    position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+    background: rgba(0,0,0,.6); color: #fff; padding: 8px 18px;
+    border-radius: 20px; font-size: 14px; backdrop-filter: blur(6px);
+    z-index: 100; pointer-events: none; white-space: nowrap;
+  }
+
+  #loading {
+    position: fixed; inset: 0; background: #000; display: flex;
+    align-items: center; justify-content: center; z-index: 9999;
+    color: #f0c330; font-size: 14px; letter-spacing: 1px; transition: opacity .4s;
+  }
+  #loading.done { opacity: 0; pointer-events: none; }
+
+  /* Ẩn credit Pannellum (nút ? và dòng "Pannellum ...") */
+  .pnlm-about-msg { display: none !important; }
+  .pnlm-ctrl.pnlm-info { display: none !important; }
+
+  @media (max-width: 768px) {
+    #sidebar { position: absolute; height: 100%; z-index: 200; width: 260px; }
+    #sidebar.hidden { margin-right: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div id="loading">ĐANG TẢI TOUR…</div>
+
+<div id="app">
+  <aside id="sidebar">
+    <h1>Di tích văn hóa Óc Eo</h1>
+    <div id="scene-list"></div>
+  </aside>
+  <div id="viewer-wrap">
+    <button id="toggle-sidebar" title="Ẩn/hiện danh sách">☰</button>
+    <div id="panorama"></div>
+    <div id="scene-title"></div>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   URL GỐC ẢNH 360° (từ smarttravel-vr.mobifone.vn)
+   ========================================================= */
+const BASE = "https://smarttravel-vr.mobifone.vn/vr-api/uploads/user/6495062c033a205573dd8af6/media/pano/preview/";
+const IMG = (name) => BASE + name + ".webp";
+
+/* =========================================================
+   DỮ LIỆU SCENE — cùng ID với tour gốc
+   ========================================================= */
+const SCENES = [
+  /* ---------- Cảnh trên cao ---------- */
+  { id: "660a51e94d7481494c14c3a4", group: "Cảnh trên cao", title: "Toàn cảnh núi Ba Thê",
+    image: IMG("4000x_EqlTX4aQdfEUvJ4sd8LL"), yaw: -3, pitch: 12, hfov: 100,
+    hotspots: [
+      { yaw: 15.07, pitch: -6.25, target: "65865229571db028db04a59c", title: "Toàn cảnh Thị Trấn Óc Eo" }
+    ] },
+  { id: "65865229571db028db04a59c", group: "Cảnh trên cao", title: "Toàn cảnh Thị Trấn Óc Eo",
+    image: IMG("4000x_ClXzxlPShmsIkXlqaU1e"), yaw: -12, pitch: 20, hfov: 100,
+    hotspots: [
+      { yaw: -0.33, pitch: 43.46, target: "65865094571db028db04a598", title: "Nhà trưng bày Văn hóa Óc Eo" },
+      { yaw: -41.16, pitch: -0.02, target: "65866680571db028db04a5a8", title: "Linh Sơn Cổ Tự" },
+      { yaw: -90.32, pitch: -0.36, target: "65af2971e9120f49f7ddc06d", title: "Gò Cây Thị A - B" },
+      { yaw: 2.92, pitch: -11.31, target: "658937d8571db028db04a673", title: "Thạch Đại Đao" },
+      { yaw: 44.10, pitch: -2.58, target: "6587f5c1571db028db04a627", title: "Gò Út Trạnh" },
+      { yaw: 67.05, pitch: -2.82, target: "658a8e45571db028db04a726", title: "Gò Giồng Cát" },
+      { yaw: -56.58, pitch: -0.45, target: "65af278ce9120f49f7ddc065", title: "Linh Sơn Nam" },
+      { yaw: -26.42, pitch: 0.21, target: "660a6a6a4d7481494c14c3e1", title: "Linh Sơn Bắc" },
+      { yaw: -72.37, pitch: -0.47, target: "660a6a184d7481494c14c3de", title: "Gò Sáu Thuận" }
+    ] },
+  { id: "660a6a6a4d7481494c14c3e1", group: "Cảnh trên cao", title: "Linh Sơn Bắc",
+    image: IMG("4000x_bGqZAX18JO2TtCcNc0E4"), yaw: 7, pitch: 31, hfov: 100,
+    hotspots: [
+      { yaw: 15.62, pitch: -2.11, target: "660a6ac84d7481494c14c3e6", title: "Tham quan" },
+      { yaw: 110.20, pitch: 12.25, target: "65866680571db028db04a5a8", title: "Lối ra Linh Sơn Cổ Tự" }
+    ] },
+  { id: "660a6a9f4d7481494c14c3e3", group: "Cảnh trên cao", title: "Linh Sơn Bắc",
+    image: IMG("4000x_31qXEvTscWYdJem2VTb7"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: -95.55, pitch: 11.85, target: "660a6ac84d7481494c14c3e6", title: "Tham quan" }
+    ] },
+  { id: "660a6ac84d7481494c14c3e6", group: "Cảnh trên cao", title: "Linh Sơn Bắc",
+    image: IMG("4000x_iIVFy89fqIm8RQwSVdY8"), yaw: 101, pitch: 21, hfov: 100,
+    hotspots: [
+      { yaw: -174.28, pitch: 2.06, target: "660a6a9f4d7481494c14c3e3", title: "Tham quan" },
+      { yaw: 10.69, pitch: 2.36, target: "660a6ae14d7481494c14c3e9", title: "Tham quan" },
+      { yaw: 107.39, pitch: 3.70, target: "660a6a6a4d7481494c14c3e1", title: "Tham quan" }
+    ] },
+  { id: "660a6ae14d7481494c14c3e9", group: "Cảnh trên cao", title: "Linh Sơn Bắc",
+    image: IMG("4000x_WfdcIvAkJniMqYHHSipr"), yaw: 22, pitch: 18, hfov: 100,
+    hotspots: [
+      { yaw: 4.94, pitch: 9.24, target: "660a6ac84d7481494c14c3e6", title: "Tham quan" }
+    ] },
+
+  /* ---------- Gò Sáu Thuận ---------- */
+  { id: "660a69b14d7481494c14c3d8", group: "Gò Sáu Thuận", title: "Gò Cây Me",
+    image: IMG("4000x_8p4VOoZrCMWNOf7dd7GN"), yaw: 4, pitch: 38, hfov: 100,
+    hotspots: [
+      { yaw: 179.65, pitch: -2.49, target: "660a6a184d7481494c14c3de", title: "Tham quan" },
+      { yaw: -140.24, pitch: 16.05, target: "660a69f04d7481494c14c3dc", title: "Tham quan" }
+    ] },
+  { id: "660a69f04d7481494c14c3dc", group: "Gò Sáu Thuận", title: "Gò Sáu Thuận",
+    image: IMG("4000x_6ICYgs1WRUK98KAIQdj5"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: -24.47, pitch: -1.16, target: "660a6a184d7481494c14c3de", title: "Tham quan" },
+      { yaw: -127.07, pitch: 3.30, target: "660a69b14d7481494c14c3d8", title: "Tham quan" }
+    ] },
+  { id: "660a6a184d7481494c14c3de", group: "Gò Sáu Thuận", title: "Gò Sáu Thuận",
+    image: IMG("4000x_oVH54jwX0DgCVcqbhnBB"), yaw: -3, pitch: 26, hfov: 100,
+    hotspots: [
+      { yaw: 0.48, pitch: 7.33, target: "660a69b14d7481494c14c3d8", title: "Gò Cây Me" },
+      { yaw: -26.28, pitch: 10.04, target: "660a69f04d7481494c14c3dc", title: "Tham quan" },
+      { yaw: 0.86, pitch: -10.55, target: "65866680571db028db04a5a8", title: "Toàn cảnh" },
+      { yaw: -152.01, pitch: 25.34, target: "658666e5571db028db04a5ab", title: "Linh Sơn Cổ Tự" }
+    ] },
+
+  /* ---------- Nhà trưng bày ---------- */
+  { id: "65ae1b5de9120f49f7ddbfe0", group: "Nhà trưng bày văn hóa Óc Eo", title: "Nhà Trưng bày",
+    image: IMG("4000x_YPZvJQeifwIXyiOQSnV3"), yaw: 4, pitch: 8, hfov: 100,
+    hotspots: [
+      { yaw: 88.38, pitch: 11.34, target: "65ae1c24e9120f49f7ddbfe3", title: "Lối tham quan" },
+      { yaw: 17.03, pitch: 15.62, target: "65ae1d55e9120f49f7ddbfee", title: "Lối tham quan" },
+      { yaw: -99.95, pitch: 18.92, target: "65ae1ee3e9120f49f7ddbff9", title: "Lối tham quan" },
+      { yaw: -1.48, pitch: -22.18, target: "65ae207be9120f49f7ddc006", title: "Xem toàn cảnh" }
+    ] },
+  { id: "65ae1c24e9120f49f7ddbfe3", group: "Nhà trưng bày văn hóa Óc Eo", title: "Nhà Trưng bày Bên phải",
+    image: IMG("4000x_L1gAzhudy8CrGy7QUeKT"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: 93.06, pitch: 20.24, target: "65ae1b5de9120f49f7ddbfe0", title: "Nhà Trưng bày" },
+      { yaw: 174.32, pitch: 18.40, target: "65ae1cb9e9120f49f7ddbfe8", title: "Lối tham quan" }
+    ] },
+  { id: "65ae1cb9e9120f49f7ddbfe8", group: "Nhà trưng bày văn hóa Óc Eo", title: "Nhà Trưng bày Bên phải",
+    image: IMG("4000x_oeyeRg93KJbmZ8k4dKOz"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: 81.98, pitch: 17.24, target: "65ae1d1fe9120f49f7ddbfeb", title: "Lối tham quan" },
+      { yaw: -5.58, pitch: 15.99, target: "65ae1d55e9120f49f7ddbfee", title: "Lối tham quan" },
+      { yaw: -90.47, pitch: 17.35, target: "65ae1c24e9120f49f7ddbfe3", title: "Lối tham quan" }
+    ] },
+  { id: "65ae1d1fe9120f49f7ddbfeb", group: "Nhà trưng bày văn hóa Óc Eo", title: "Nhà Trưng bày Bên phải",
+    image: IMG("4000x_mYQAMcmHyVrxqUuDyCue"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: -178.52, pitch: 16.92, target: "65ae1cb9e9120f49f7ddbfe8", title: "Lối tham quan" },
+      { yaw: -92.00, pitch: 14.22, target: "65ae1dbfe9120f49f7ddbff2", title: "Lối tham quan" }
+    ] },
+  { id: "65ae1d55e9120f49f7ddbfee", group: "Nhà trưng bày văn hóa Óc Eo", title: "Nhà Trưng bày Ở giữa",
+    image: IMG("4000x_trlWLid69kpAhIKe4NcH"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: -28.23, pitch: 20.51, target: "65ae1dbfe9120f49f7ddbff2", title: "Lối tham quan" },
+      { yaw: 118.90, pitch: 17.80, target: "65ae1cb9e9120f49f7ddbfe8", title: "Lối tham quan" },
+      { yaw: -129.66, pitch: 20.38, target: "65ae1f4ae9120f49f7ddbffc", title: "Lối tham quan" }
+    ] },
+  { id: "65ae1dbfe9120f49f7ddbff2", group: "Nhà trưng bày văn hóa Óc Eo", title: "Nhà Trưng bày Ở giữa",
+    image: IMG("4000x_AQOszuV6Nl2EOkf0JSOV"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: 70.61, pitch: 15.65, target: "65ae1d1fe9120f49f7ddbfeb", title: "Lối tham quan" },
+      { yaw: -92.78, pitch: 24.37, target: "65ae1fa4e9120f49f7ddbfff", title: "Lối tham quan" }
+    ] },
+  { id: "65ae1ee3e9120f49f7ddbff9", group: "Nhà trưng bày văn hóa Óc Eo", title: "Nhà Trưng bày Bên trái",
+    image: IMG("4000x_IUNNf2owlWjTvqalSXEe"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: -100.65, pitch: 17.95, target: "65ae1b5de9120f49f7ddbfe0", title: "Lối tham quan" },
+      { yaw: 166.97, pitch: 18.63, target: "65ae1f4ae9120f49f7ddbffc", title: "Lối tham quan" }
+    ] },
+  { id: "65ae1f4ae9120f49f7ddbffc", group: "Nhà trưng bày văn hóa Óc Eo", title: "Nhà Trưng bày Bên trái",
+    image: IMG("4000x_R1zaixXuBqsjHTJOTW51"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: -90.71, pitch: 20.44, target: "65ae1d55e9120f49f7ddbfee", title: "Lối tham quan" },
+      { yaw: 178.91, pitch: 18.50, target: "65ae1fa4e9120f49f7ddbfff", title: "Lối tham quan" },
+      { yaw: 6.40, pitch: 13.86, target: "65ae1ee3e9120f49f7ddbff9", title: "Lối tham quan" }
+    ] },
+  { id: "65ae1fa4e9120f49f7ddbfff", group: "Nhà trưng bày văn hóa Óc Eo", title: "Nhà Trưng bày Bên trái",
+    image: IMG("4000x_xA5UxzKe9rz60J7eeQWL"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: 172.24, pitch: 19.70, target: "65ae1f4ae9120f49f7ddbffc", title: "Lối tham quan" },
+      { yaw: 82.88, pitch: 10.11, target: "65ae1dbfe9120f49f7ddbff2", title: "Lối tham quan" }
+    ] },
+  { id: "65ae207be9120f49f7ddc006", group: "Nhà trưng bày văn hóa Óc Eo", title: "Toàn cảnh",
+    image: IMG("4000x_pSJzrj4x5ESblUZ07A0P"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: -178.28, pitch: 25.52, target: "65ae1b5de9120f49f7ddbfe0", title: "Về giữa" }
+    ] },
+  { id: "65865094571db028db04a598", group: "Nhà trưng bày văn hóa Óc Eo", title: "Góc nhìn trên cao",
+    image: IMG("4000x_WPFh0yclPpcOJJVUtsXh"), yaw: -2, pitch: 12, hfov: 100,
+    hotspots: [
+      { yaw: -8.33, pitch: 14.98, target: "65865fdf571db028db04a5a1", title: "Trước nhà trưng bày" },
+      { yaw: -160.33, pitch: -38.98, target: "65865229571db028db04a59c", title: "Toàn cảnh Thị Trấn Óc Eo" },
+      { yaw: 6.70, pitch: -19.65, target: "658937d8571db028db04a673", title: "Thạch Đại Đao" }
+    ] },
+  { id: "65865fdf571db028db04a5a1", group: "Nhà trưng bày văn hóa Óc Eo", title: "Trước nhà trưng bày",
+    image: IMG("4000x_6eX8lfKJ2cCGtDswjpo6"), yaw: 3, pitch: 5, hfov: 100,
+    hotspots: [
+      { yaw: 178.39, pitch: -14.78, target: "65865094571db028db04a598", title: "Toàn cảnh Nhà trưng bày" },
+      { yaw: -157.34, pitch: -60.15, target: "65865229571db028db04a59c", title: "Toàn cảnh Thị Xã Óc Eo" },
+      { yaw: -0.08, pitch: 16.08, target: "65ae1b5de9120f49f7ddbfe0", title: "Vào bên trong" }
+    ] },
+
+  /* ---------- Thạch Đại Đao ---------- */
+  { id: "658937d8571db028db04a673", group: "Thạch Đại Đao", title: "Toàn cảnh trên cao",
+    image: IMG("4000x_WPFh0yclPpcOJJVUtsXh"), yaw: 5, pitch: 12, hfov: 100,
+    hotspots: [
+      { yaw: 125.94, pitch: -3.67, target: "65865229571db028db04a59c", title: "Toàn cảnh Thị Trấn Óc Eo" },
+      { yaw: 2.42, pitch: 25.83, target: "65893870571db028db04a677", title: "Thạch Đại Đao" }
+    ] },
+  { id: "65893870571db028db04a677", group: "Thạch Đại Đao", title: "Thạch Đại Đao",
+    image: IMG("4000x_6eX8lfKJ2cCGtDswjpo6"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: 77.01, pitch: -26.26, target: "658937d8571db028db04a673", title: "Toàn cảnh trên cao" }
+    ] },
+
+  /* ---------- Linh Sơn Cổ Tự ---------- */
+  { id: "65866680571db028db04a5a8", group: "Linh Sơn Cổ Tự", title: "Linh Sơn Cổ Tự",
+    image: IMG("4000x_lxgrVlUhlV7mZ4iVowsm"), yaw: 2, pitch: 11, hfov: 100,
+    hotspots: [
+      { yaw: -0.35, pitch: 22.21, target: "658666e5571db028db04a5ab", title: "Cổng vào" },
+      { yaw: 35.93, pitch: -15.98, target: "65865229571db028db04a59c", title: "Toàn cảnh Thị Trấn Óc Eo" },
+      { yaw: -20.45, pitch: 3.52, target: "65af278ce9120f49f7ddc065", title: "Linh Sơn Nam" },
+      { yaw: 50.16, pitch: 1.47, target: "660a6a6a4d7481494c14c3e1", title: "Linh Sơn Bắc" },
+      { yaw: -10.98, pitch: 33.44, target: "660a6a184d7481494c14c3de", title: "Gò Sáu Thuận" }
+    ] },
+  { id: "658666e5571db028db04a5ab", group: "Linh Sơn Cổ Tự", title: "Linh Sơn Cổ Tự",
+    image: IMG("4000x_pFEd2FWfviAJLzAbFPpq"), yaw: -2, pitch: 3, hfov: 100,
+    hotspots: [
+      { yaw: 177.21, pitch: -16.60, target: "65866680571db028db04a5a8", title: "Toàn cảnh trên cao" },
+      { yaw: -2.41, pitch: 0.54, target: "6587d2b7571db028db04a5ff", title: "Đi tới" },
+      { yaw: -12.91, pitch: 15.91, target: "6587d213571db028db04a5fd", title: "Linh Sơn Thánh Mẫu" }
+    ] },
+  { id: "6587d213571db028db04a5fd", group: "Linh Sơn Cổ Tự", title: "Linh Sơn Cổ Tự",
+    image: IMG("4000x_SullPhnbDhXjlQvtuLOz"), yaw: 177, pitch: 4, hfov: 100,
+    hotspots: [{ yaw: -10.97, pitch: 20.64, target: "658666e5571db028db04a5ab", title: "Trở ra cổng" }] },
+  { id: "6587d2b7571db028db04a5ff", group: "Linh Sơn Cổ Tự", title: "Linh Sơn Cổ Tự",
+    image: IMG("4000x_QNRXEkQRiudKe7N45uU9"), yaw: 175, pitch: -5, hfov: 100,
+    hotspots: [
+      { yaw: -8.82, pitch: 16.04, target: "658666e5571db028db04a5ab", title: "Trở ra" },
+      { yaw: 171.81, pitch: 19.45, target: "6587d8bf571db028db04a605", title: "Đi tới" }
+    ] },
+  { id: "6587d8bf571db028db04a605", group: "Linh Sơn Cổ Tự", title: "Linh Sơn Cổ Tự",
+    image: IMG("4000x_OkMLunCkScKtlCPFl0ba"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: -11.32, pitch: 9.48, target: "6587d2b7571db028db04a5ff", title: "Trở ra" },
+      { yaw: -125.66, pitch: 10.68, target: "6587dac4571db028db04a609", title: "Lên sân Chánh điện" },
+      { yaw: 116.55, pitch: 2.69, target: "65af278ce9120f49f7ddc065", title: "Linh Sơn Nam" }
+    ] },
+  { id: "6587dac4571db028db04a609", group: "Linh Sơn Cổ Tự", title: "Linh Sơn Cổ Tự",
+    image: IMG("4000x_QYLR1zPUo0MDEvWK1hgt"), yaw: -178, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: -49.31, pitch: 6.67, target: "6587d8bf571db028db04a605", title: "Trở ra" },
+      { yaw: -137.06, pitch: 4.16, target: "6587dc4f571db028db04a60f", title: "Vào Chánh điện" },
+      { yaw: 130.92, pitch: 3.85, target: "6587dc4f571db028db04a60f", title: "Vào Chánh điện" }
+    ] },
+  { id: "6587dc4f571db028db04a60f", group: "Linh Sơn Cổ Tự", title: "Linh Sơn Cổ Tự",
+    image: IMG("4000x_duaNdV8l1S8KVJCGaTqI"), yaw: -178, pitch: 10, hfov: 100,
+    hotspots: [
+      { yaw: -53.21, pitch: 5.83, target: "6587dac4571db028db04a609", title: "Sân chánh điện" },
+      { yaw: 51.14, pitch: 4.56, target: "6587dac4571db028db04a609", title: "Sân chánh điện" },
+      { yaw: -133.26, pitch: 18.26, target: "6587eb67571db028db04a618", title: "Chánh điện phía sau" },
+      { yaw: 128.56, pitch: 16.16, target: "6587eb67571db028db04a618", title: "Chánh điện phía sau" }
+    ] },
+  { id: "6587eb67571db028db04a618", group: "Linh Sơn Cổ Tự", title: "Linh Sơn Cổ Tự",
+    image: IMG("4000x_E0Fgnbb9yGrHEHXqMDHn"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: 40.99, pitch: 12.39, target: "6587dc4f571db028db04a60f", title: "Trở ra Chánh điện" },
+      { yaw: -48.83, pitch: 11.85, target: "6587dc4f571db028db04a60f", title: "Trở ra Chánh điện" },
+      { yaw: -142.38, pitch: 16.12, target: "6587de45571db028db04a616", title: "Tham quan" }
+    ] },
+  { id: "6587de45571db028db04a616", group: "Linh Sơn Cổ Tự", title: "Linh Sơn Cổ Tự",
+    image: IMG("4000x_6S4V1wXnh0sHUd3dERrb"), yaw: 179, pitch: 2, hfov: 100,
+    hotspots: [{ yaw: 37.08, pitch: 22.45, target: "6587eb67571db028db04a618", title: "Trở ra" }] },
+
+  /* ---------- Linh Sơn Nam ---------- */
+  { id: "65af278ce9120f49f7ddc065", group: "Linh Sơn Nam", title: "Linh Sơn Nam",
+    image: IMG("4000x_NiSs9DlYvPjGStBHCmMY"), yaw: -5, pitch: -7, hfov: 100,
+    hotspots: [
+      { yaw: -8.36, pitch: 6.76, target: "65af27afe9120f49f7ddc067", title: "Lối tham quan" },
+      { yaw: -109.70, pitch: 1.50, target: "6587d8bf571db028db04a605", title: "Trở về Linh Sơn Cổ Tự" },
+      { yaw: -95.29, pitch: -12.14, target: "65866680571db028db04a5a8", title: "Cảnh trên cao" }
+    ] },
+  { id: "65af27afe9120f49f7ddc067", group: "Linh Sơn Nam", title: "Linh Sơn Nam",
+    image: IMG("4000x_ueLb1jlxlEZ3PRoB5Cfm"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: 2.02, pitch: -0.34, target: "6587f9c2571db028db04a633", title: "Tham quan" },
+      { yaw: 168.53, pitch: 19.84, target: "65af278ce9120f49f7ddc065", title: "Trở về" }
+    ] },
+  { id: "6587f9a5571db028db04a631", group: "Linh Sơn Nam", title: "Linh Sơn Nam",
+    image: IMG("4000x_G10r6ESuACGBXJN9jH8S"), yaw: -35, pitch: -1, hfov: 100,
+    hotspots: [
+      { yaw: -27.40, pitch: 4.94, target: "6587f9c2571db028db04a633", title: "Tham quan" },
+      { yaw: -97.69, pitch: -4.05, target: "65af27afe9120f49f7ddc067", title: "Trở về" }
+    ] },
+  { id: "6587f9c2571db028db04a633", group: "Linh Sơn Nam", title: "Linh Sơn Nam",
+    image: IMG("4000x_iqA7E90Ebf3VR8sEER8n"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: 129.63, pitch: -0.79, target: "6587f9a5571db028db04a631", title: "Tham quan" },
+      { yaw: -166.10, pitch: 0.16, target: "65af27afe9120f49f7ddc067", title: "Trở về" }
+    ] },
+
+  /* ---------- Gò Út Trạnh ---------- */
+  { id: "6587f5c1571db028db04a627", group: "Gò Út Trạnh", title: "Gò Út Trạnh",
+    image: IMG("4000x_LaKft3bcK8uDuZ9CQuES"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: -1.63, pitch: 28.04, target: "6587f5d8571db028db04a629", title: "Lối vào" },
+      { yaw: 9.89, pitch: -19.04, target: "65865229571db028db04a59c", title: "Toàn cảnh Thị Trấn Óc Eo" }
+    ] },
+  { id: "6587f5d8571db028db04a629", group: "Gò Út Trạnh", title: "Gò Út Trạnh",
+    image: IMG("4000x_qg2tGflCf1grLTjMkvss"), yaw: 3, pitch: 11, hfov: 100,
+    hotspots: [
+      { yaw: 169.04, pitch: -30.24, target: "6587f5c1571db028db04a627", title: "Toàn cảnh trên cao" },
+      { yaw: -15.46, pitch: 8.43, target: "6587fed8571db028db04a63c", title: "Tham quan" }
+    ] },
+  { id: "6587fed8571db028db04a63c", group: "Gò Út Trạnh", title: "Gò Út Trạnh",
+    image: IMG("4000x_RXM8EcT74d3FwQWGoND5"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: 115.47, pitch: 6.50, target: "6587ff86571db028db04a63f", title: "Tham quan" },
+      { yaw: -106.76, pitch: -8.42, target: "6587f5d8571db028db04a629", title: "Trở ra" }
+    ] },
+  { id: "6587ff86571db028db04a63f", group: "Gò Út Trạnh", title: "Gò Út Trạnh",
+    image: IMG("4000x_WyefxOUGJv4lEDRe1Y4Y"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: 120.98, pitch: 5.37, target: "6587fed8571db028db04a63c", title: "Tham quan" },
+      { yaw: -114.29, pitch: 6.66, target: "6587ff99571db028db04a640", title: "Tham quan" },
+      { yaw: 87.47, pitch: -8.94, target: "6587f5d8571db028db04a629", title: "Trở ra" }
+    ] },
+  { id: "6587ff99571db028db04a640", group: "Gò Út Trạnh", title: "Gò Út Trạnh",
+    image: IMG("4000x_QWI0WKy1tENUb4ONo0gJ"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: 40.17, pitch: -0.56, target: "6587ff86571db028db04a63f", title: "Tham quan" },
+      { yaw: 63.77, pitch: -2.59, target: "6587fed8571db028db04a63c", title: "Tham quan" }
+    ] },
+
+  /* ---------- Gò Cây Thị A - B ---------- */
+  { id: "65af2865e9120f49f7ddc069", group: "Gò Cây Thị A - B", title: "Gò Cây Thị A",
+    image: IMG("4000x_qERppruyaTqrVBDfXPmR"), yaw: -7, pitch: 3, hfov: 100,
+    hotspots: [
+      { yaw: -86.65, pitch: 8.55, target: "65af2953e9120f49f7ddc06b", title: "Gò Cây Thị B" },
+      { yaw: -8.24, pitch: -16.38, target: "660a64324d7481494c14c3c2", title: "Toàn cảnh" }
+    ] },
+  { id: "65af2953e9120f49f7ddc06b", group: "Gò Cây Thị A - B", title: "Gò Cây Thị B",
+    image: IMG("4000x_XBoDm26Hdg3lwHxTbp2q"), yaw: -1, pitch: 2, hfov: 100,
+    hotspots: [
+      { yaw: 108.76, pitch: 8.85, target: "65af2865e9120f49f7ddc069", title: "Gò Cây Thị A" },
+      { yaw: -66.15, pitch: 4.43, target: "65af2971e9120f49f7ddc06d", title: "Lối ra cổng" },
+      { yaw: -156.18, pitch: -2.08, target: "658814be571db028db04a64a", title: "Cảnh trên cao" },
+      { yaw: -7.64, pitch: -10.24, target: "660a685c4d7481494c14c3d4", title: "Toàn cảnh" }
+    ] },
+  { id: "65af2971e9120f49f7ddc06d", group: "Gò Cây Thị A - B", title: "Gò Cây Thị A - B",
+    image: IMG("4000x_Mo9qow2ZIceCgQtFfjYi"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: -10.55, pitch: 5.81, target: "65af2953e9120f49f7ddc06b", title: "Lối vào" },
+      { yaw: -13.13, pitch: -40.88, target: "658814be571db028db04a64a", title: "Toàn cảnh trên cao" },
+      { yaw: 167.10, pitch: -22.59, target: "65865229571db028db04a59c", title: "Trở về Thị Trấn Óc Eo" }
+    ] },
+  { id: "660a64324d7481494c14c3c2", group: "Gò Cây Thị A - B", title: "Gò Cây Thị A",
+    image: IMG("4000x_07oAb4ESiyXGGM0xgtK6"), yaw: 173, pitch: 10, hfov: 100,
+    hotspots: [{ yaw: 163.82, pitch: 7.02, target: "65af2865e9120f49f7ddc069", title: "Trở về" }] },
+  { id: "660a685c4d7481494c14c3d4", group: "Gò Cây Thị A - B", title: "Gò Cây Thị B",
+    image: IMG("4000x_gHNf8Esbrd4mF0cAbtNA"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [{ yaw: 178.26, pitch: 7.07, target: "65af2953e9120f49f7ddc06b", title: "Trở về" }] },
+  { id: "658814be571db028db04a64a", group: "Gò Cây Thị A - B", title: "Toàn cảnh trên cao",
+    image: IMG("4000x_Ogpof2Tmh3SxBt2XbGKH"), yaw: 9, pitch: 32, hfov: 100,
+    hotspots: [
+      { yaw: -0.50, pitch: 28.53, target: "65af2953e9120f49f7ddc06b", title: "Gò Cây Thị B" },
+      { yaw: -136.59, pitch: -14.11, target: "65865229571db028db04a59c", title: "Toàn cảnh Thị Trấn Óc Eo" }
+    ] },
+
+  /* ---------- Gò Giồng Cát ---------- */
+  { id: "658a8e45571db028db04a726", group: "Gò Giồng Cát", title: "Gò Giồng Cát",
+    image: IMG("4000x_ttHyXysQptSpqQuIbYD0"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: -32.98, pitch: 27.28, target: "658a8e91571db028db04a727", title: "Tham quan" },
+      { yaw: 38.34, pitch: 26.61, target: "658a8eae571db028db04a728", title: "Tham quan" },
+      { yaw: -155.08, pitch: -12.50, target: "65865229571db028db04a59c", title: "Toàn cảnh Thị Trấn Óc Eo" }
+    ] },
+  { id: "658a8e91571db028db04a727", group: "Gò Giồng Cát", title: "Gò Gồng Cát",
+    image: IMG("4000x_93qGDZ5vbFnUL9dtIWCw"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: 29.05, pitch: 9.00, target: "658a8ca1571db028db04a71f", title: "Tham quan" },
+      { yaw: 177.91, pitch: -33.42, target: "658a8e45571db028db04a726", title: "Toàn cảnh trên cao" }
+    ] },
+  { id: "658a8eae571db028db04a728", group: "Gò Giồng Cát", title: "Gò Gồng Cát",
+    image: IMG("4000x_9SLw4kWXlD3gof8DqVrp"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: 76.14, pitch: 15.26, target: "658a8ca1571db028db04a720", title: "Giếng nước cổ xưa" },
+      { yaw: 37.91, pitch: 43.31, target: "658a8d11571db028db04a722", title: "Tham quan" },
+      { yaw: -136.24, pitch: -34.82, target: "658a8e45571db028db04a726", title: "Toàn cảnh trên cao" },
+      { yaw: -51.29, pitch: 1.57, target: "658a8ca1571db028db04a71f", title: "Tham quan" }
+    ] },
+  { id: "658a8d11571db028db04a722", group: "Gò Giồng Cát", title: "Gò Gồng Cát",
+    image: IMG("4000x_gYBYVXUtQl1ZwUjsXzYZ"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: 98.89, pitch: -46.42, target: "658a8e45571db028db04a726", title: "Toàn cảnh trên cao" },
+      { yaw: 43.46, pitch: -29.85, target: "658a8eae571db028db04a728", title: "Góc nhìn trên cao" },
+      { yaw: -71.79, pitch: -1.24, target: "658a8ca1571db028db04a720", title: "Giếng nước cổ xưa" },
+      { yaw: 149.65, pitch: -1.89, target: "658a8ca1571db028db04a71f", title: "Tham quan" }
+    ] },
+  { id: "658a8ca1571db028db04a71f", group: "Gò Giồng Cát", title: "Gò Gồng Cát",
+    image: IMG("4000x_x2GdlPdjPeYg10oUF0Kn"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: -167.42, pitch: -10.93, target: "658a8e91571db028db04a727", title: "Góc nhìn trên cao" },
+      { yaw: 164.69, pitch: -26.97, target: "658a8e45571db028db04a726", title: "Toàn cảnh trên cao" },
+      { yaw: 116.70, pitch: -2.09, target: "658a8d11571db028db04a722", title: "Tham quan" }
+    ] },
+  { id: "658a8ca1571db028db04a720", group: "Gò Giồng Cát", title: "Giếng nước cổ xưa",
+    image: IMG("4000x_tELcUm5nQTaqpbTYZKAb"), yaw: 0, pitch: 0, hfov: 100,
+    hotspots: [
+      { yaw: 1.18, pitch: -28.40, target: "658a8eae571db028db04a728", title: "Góc nhìn trên cao" }
+    ] }
+];
+
+/* =========================================================
+   KHỞI TẠO
+   ========================================================= */
+const viewerEl = document.getElementById("panorama");
+const sidebarEl = document.getElementById("sidebar");
+const listEl = document.getElementById("scene-list");
+const titleEl = document.getElementById("scene-title");
+const toggleBtn = document.getElementById("toggle-sidebar");
+const loadingEl = document.getElementById("loading");
+
+let viewer = null;
+
+function buildSceneConfig(scene) {
+  const hotspots = (scene.hotspots || []).map(h => ({
+    pitch: h.pitch,
+    yaw: h.yaw,
+    type: "info",
+    text: h.title,
+    clickHandler: () => goToScene(h.target)
+  }));
+
+  return {
+    type: "equirectangular",
+    panorama: scene.image,
+    yaw: scene.yaw || 0,
+    pitch: scene.pitch || 0,
+    hfov: scene.hfov || 100,
+    autoLoad: true,
+    showControls: true,
+    compass: false,
+    hotSpots: hotspots,
+    backgroundColor: [0, 0, 0]
+  };
+}
+
+function goToScene(sceneId) {
+  const scene = SCENES.find(s => s.id === sceneId);
+  if (!scene) { console.warn("Không tìm thấy scene:", sceneId); return; }
+
+  if (viewer) viewer.destroy();
+  viewer = pannellum.viewer(viewerEl, buildSceneConfig(scene));
+
+  titleEl.textContent = scene.title;
+  highlightSidebar(scene.id);
+}
+
+function renderSidebar() {
+  const groups = {};
+  SCENES.forEach(s => {
+    if (!groups[s.group]) groups[s.group] = [];
+    groups[s.group].push(s);
+  });
+
+  const html = Object.entries(groups).map(([groupName, scenes]) => `
+    <div class="group">
+      <div class="group-title">${groupName}</div>
+      ${scenes.map(s => `<div class="scene-item" data-id="${s.id}">${s.title}</div>`).join("")}
+    </div>
+  `).join("");
+
+  listEl.innerHTML = html;
+  listEl.querySelectorAll(".scene-item").forEach(el => {
+    el.addEventListener("click", () => goToScene(el.dataset.id));
+  });
+}
+
+function highlightSidebar(sceneId) {
+  listEl.querySelectorAll(".scene-item").forEach(el => {
+    el.classList.toggle("active", el.dataset.id === sceneId);
+  });
+}
+
+toggleBtn.addEventListener("click", () => {
+  sidebarEl.classList.toggle("hidden");
+  setTimeout(() => viewer && viewer.resize(), 320);
+});
+
+window.addEventListener("load", () => {
+  renderSidebar();
+  goToScene(SCENES[0].id);
+  setTimeout(() => loadingEl.classList.add("done"), 800);
+});
+
+window.addEventListener("resize", () => viewer && viewer.resize());
+</script>
+</body>
+</html>
