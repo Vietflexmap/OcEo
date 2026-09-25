@@ -37,7 +37,8 @@ function accuracyText(value) {
     curated:"Tọa độ biên tập",
     illustrative:"Vị trí minh họa",
     "reference-or-curated":"Tham chiếu / biên tập",
-    "group-approximate":"Neo theo cụm VR"
+    "group-approximate":"Neo theo cụm VR",
+    "literature-approximate":"Xấp xỉ theo tư liệu"
   };
   return labels[value] || value || "Chưa phân loại";
 }
