@@ -1,0 +1,149 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "museum-model",
+        "name": "Nhà trưng bày – khối 3D",
+        "kind": "present",
+        "height": 18
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.15355,
+              10.25472
+            ],
+            [
+              105.15418,
+              10.25472
+            ],
+            [
+              105.15418,
+              10.25518
+            ],
+            [
+              105.15355,
+              10.25518
+            ],
+            [
+              105.15355,
+              10.25472
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "linh-son-model",
+        "name": "Linh Sơn Cổ Tự – khối 3D",
+        "kind": "present",
+        "height": 24
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.15466,
+              10.24638
+            ],
+            [
+              105.15526,
+              10.24638
+            ],
+            [
+              105.15526,
+              10.24682
+            ],
+            [
+              105.15466,
+              10.24682
+            ],
+            [
+              105.15466,
+              10.24638
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ancient-core-1",
+        "name": "Khối tái dựng Óc Eo cổ 01",
+        "kind": "ancient",
+        "height": 13
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.1595,
+              10.2493
+            ],
+            [
+              105.1604,
+              10.2493
+            ],
+            [
+              105.1604,
+              10.25
+            ],
+            [
+              105.1595,
+              10.25
+            ],
+            [
+              105.1595,
+              10.2493
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ancient-core-2",
+        "name": "Khối tái dựng Óc Eo cổ 02",
+        "kind": "ancient",
+        "height": 10
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.1645,
+              10.2445
+            ],
+            [
+              105.16525,
+              10.2445
+            ],
+            [
+              105.16525,
+              10.24515
+            ],
+            [
+              105.1645,
+              10.24515
+            ],
+            [
+              105.1645,
+              10.2445
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
